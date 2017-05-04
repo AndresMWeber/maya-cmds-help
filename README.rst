@@ -46,17 +46,26 @@ Bash
 
 .. code-block:: bash
 
+    mayasig
+
     Usage:
-      mayasig ls
-      mayasig -h | --help
-      mayasig --version
+      mayasig [-m|--mayaversion VERSION] [-d|--depth DEPTH] (MAYA_CMDS ...)
+      mayasig (-h|--help)
+      mayasig (--version)
 
     Options:
       -h --help                         Show this screen.
       --version                         Show version.
+      -m VERSION --mayaversion VERSION  If you want to override which Maya docs we query (tested with 2015/2016/2017) [default: 2017]
+      -d DEPTH --depth DEPTH            The depth verbosity of the return dictionary [default: 1]
+      MAYA_CMDS                         Maya commands to query/scrape from the help and return signatures for
 
     Examples:
       mayasig group
+
+    Help:
+      For help using this tool, please open an issue on the Github repository:
+      https://github.com/andresmweber/mayasig-cli
 
 Python Package Usage
 ---------------------
