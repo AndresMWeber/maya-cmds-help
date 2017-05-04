@@ -75,13 +75,16 @@ class Scrape(Base):
         print("wrote out tmp file %s" % os.path.join(os.getcwd(), self.CACHE_FILE))
 
     def read_tempfile(self):
-        with open(self.CACHE_FILE, ) as data_file:
-            try:
-                data = json.load(data_file)
-            except ValueError:
-                data = {}
-        print('Successfully loaded json data, loading into cache...')
-        self.scrape_command.cache = data
+        try:
+            with open(self.CACHE_FILE, ) as data_file:
+                try:
+                    data = json.load(data_file)
+                except ValueError:
+                    data = {}
+            print('Successfully loaded json data, loading into cache...')
+            self.scrape_command.cache = data
+        except IOError:
+            print('No preexisting scrape.json detected in folder %s continuing...' % os.getcwd())
 
     @KeyMemoized
     def scrape_command(self, maya_command_url):
