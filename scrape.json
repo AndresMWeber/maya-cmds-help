@@ -1,1 +1,600 @@
-{"http://help.autodesk.com/cloudhelp/2017/ENU/Maya-Tech-Docs/CommandsPython/joint.html": {"assumePreferredAngles": {"short": "apa", "description": "Meaningful only in the edit mode. It sets the joint angles to the corresponding preferred angles.", "data_type": "boolean"}, "orientation": {"short": "o", "description": "The joint orientation. When queried, this flag returns 3 floats.", "data_type": "[angle, angle, angle]"}, "symmetry": {"short": "sym", "description": "Create a symmetric joint from the current joint.", "data_type": "boolean"}, "relative": {"short": "r", "description": "The joint center position is relative to the joint's parent.", "data_type": "boolean"}, "radius": {"short": "rad", "description": "Specifies the joint radius.", "data_type": "float"}, "secondaryAxisOrient": {"short": "sao", "description": "The argument can be one of the following strings: xup, xdown, yup, ydown, zup, zdown, none.  This flag is used in conjunction with the -oj/orientJoint flag. It specifies the scene axis that the second axis should align with. For example, a flag combination of \"-oj yzx -sao yup\" would result in the y-axis pointing down the bone, the z-axis oriented with the scene's positive y-axis, and the x-axis oriented according to the right hand rule.", "data_type": "string"}, "exists": {"short": "ex", "description": "Does the named joint exist? When queried, this flag returns a boolean.", "data_type": "string"}, "absolute": {"short": "a", "description": "The joint center position is in absolute world coordinates. (This is the default.)", "data_type": "boolean"}, "scale": {"short": "s", "description": "Scale of the joint. When queried, this flag returns 3 floats.", "data_type": "[float, float, float]"}, "limitSwitchZ": {"short": "lsz", "description": "Use the Limit the z-axis rotation? When queried, this flag returns a boolean.", "data_type": "boolean"}, "limitSwitchY": {"short": "lsy", "description": "Use the limit the y-axis rotation? When queried, this flag returns a boolean.", "data_type": "boolean"}, "limitSwitchX": {"short": "lsx", "description": "Use the limit the x-axis rotation? When queried, this flag returns a boolean.", "data_type": "boolean"}, "zeroScaleOrient": {"short": "zso", "description": "It sets the scale orientation to zero and compensate the change by modifing the translation and joint orientation for joint or rotation for general transform of all its child transformations.  The flag will be ignored if the flag -so is set.", "data_type": "boolean"}, "children": {"short": "ch", "description": "It tells the command to apply all the edit options not only to the selected joints, but also to their descendent joints in the DAG.", "data_type": "boolean"}, "degreeOfFreedom": {"short": "dof", "description": "Specifies the degrees of freedom for the IK. Valid strings consist of non-duplicate letters from x, y, and z. The letters in the string indicate what rotations are to be used by IK. The order a letter appear in the string does not matter. Examples are x, yz, xyz. When queried, this flag returns a string. Modifying dof will change the locking state of the corresponding rotation attributes. The rule is: if an rotation is turned into a dof, it will be unlocked if it is currently locked. When it is turned into a non-dof, it will be locked if it is not currently locked.", "data_type": "string"}, "symmetryAxis": {"short": "sa", "description": "This flag specifies the axis used to mirror symmetric joints. Any combination of x, y, z can be used. This option is only used when the symmetry flag is set to True.", "data_type": "string"}, "orientJoint": {"short": "oj", "description": "The argument can be one of the following strings: xyz, yzx, zxy, zyx, yxz, xzy, none.  It modifies the joint orientation and scale orientation so that the axis indicated by the first letter in the argument will be aligned with the vector from this joint to its first child joint. For example, if the argument is \"xyz\", the x-axis will point towards the child joint.  The alignment of the remaining two joint orient axes are dependent on whether or not the -sao/-secondaryAxisOrient flag is used. If the -sao flag is used, see the documentation for that flag for how the remaining axes are aligned.  In the absence of a user specification for the secondary axis orientation, the rotation axis indicated by the last letter in the argument will be aligned with the vector perpendicular to first axis and the vector from this joint to its parent joint.  The remaining axis is aligned according the right hand rule.  If the argument is \"none\", the joint orientation will be set to zero and its effect to the hierarchy below will be offset by modifying the scale orientation.  The flag will be ignored if:  A. the joint has non-zero rotations when the argument is not \"none\".  B. the joint does not have child joint, or the distance to the child joint is zero when the argument is not \"none\".  C. either flag -o or -so is set.", "data_type": "string"}, "rotationOrder": {"short": "roo", "description": "The rotation order of the joint. The argument can be one of the following strings: xyz, yzx, zxy, zyx, yxz, xzy.", "data_type": "string"}, "scaleOrientation": {"short": "so", "description": "Set the orientation of the coordinate axes for scaling. When queried, this flag returns 3 floats.", "data_type": "[angle, angle, angle]"}, "component": {"short": "co", "description": "Use with the -position switch to position the joint relative to its parent (like -relative) but to compute new positions for all children joints so their world coordinate positions do not change.", "data_type": "boolean"}, "limitX": {"short": "lx", "description": "Set lower and upper limits on the x-axis of rotation.  Also turns on the joint limit. When queried, this flag returns 2 floats.", "data_type": "[angle, angle]"}, "limitZ": {"short": "lz", "description": "Set lower and upper limits on the z-axis of rotation.  Also turns on the joint limit. When queried, this flag returns 2 floats.", "data_type": "[angle, angle]"}, "limitY": {"short": "ly", "description": "Set lower and upper limits on the y-axis of rotation.  Also turns on the joint limit. When queried, this flag returns 2 floats.", "data_type": "[angle, angle]"}, "automaticLimits": {"short": "al", "description": "Meaningful only in edit mode. It sets the joint to appropriate hinge joint with joint limits. It modifies the joint only if (a) it connects exactly to two joints (one parent, one child), (b) it does not lie on the line drawn between the two connected joints, and the plane it forms with the two connected joints is perpendicular to one of its rotation axes.", "data_type": "boolean"}, "scaleCompensate": {"short": "sc", "description": "It sets the scaleCompenstate attribute of the joint to the given argument. When this is true, the scale of the parent joint will be compensated before any rotation of this joint is applied, so that the bone to the joint is scaled but not the bones to its child joints. When queried, this flag returns an boolean.", "data_type": "boolean"}, "name": {"short": "n", "description": "Specifies the name of the joint. When queried, this flag returns a string.", "data_type": "string"}, "setPreferredAngles": {"short": "spa", "description": "Meaningful only in the edit mode. It sets the preferred angles to the current joint angles.", "data_type": "boolean"}, "stiffnessZ": {"short": "stz", "description": "Set the stiffness (from 0 to 100.0) for z-axis. When queried, this flag returns a float.", "data_type": "float"}, "stiffnessY": {"short": "sty", "description": "Set the stiffness (from 0 to 100.0) for y-axis. When queried, this flag returns a float.", "data_type": "float"}, "stiffnessX": {"short": "stx", "description": "Set the stiffness (from 0 to 100.0) for x-axis. When queried, this flag returns a float.", "data_type": "float"}, "position": {"short": "p", "description": "Specifies the position of the center of the joint. This position may be relative to the joint's parent or in absolute world coordinates (see -r and -a below). When queried, this flag returns 3 floats.", "data_type": "[linear, linear, linear]"}, "angleY": {"short": "ay", "description": "Set the y-axis angle. When queried, this flag returns a float.", "data_type": "angle"}, "angleX": {"short": "ax", "description": "Set the x-axis angle. When queried, this flag returns a float.", "data_type": "angle"}, "angleZ": {"short": "az", "description": "Set the z-axis angle. When queried, this flag returns a float.", "data_type": "angle"}}, "group": {"name": {"short": "n", "description": "Assign given name to new group node.", "data_type": "string"}, "parent": {"short": "p", "description": "put the new group under the given parent", "data_type": "string"}, "relative": {"short": "r", "description": "preserve existing local object transformations (relative to the new group node)", "data_type": "boolean"}, "useAsGroup": {"short": "uag", "description": "Use the specified node as the group node. The specified node must be derived from the transform node and must not have any existing parents or children.", "data_type": "string"}, "world": {"short": "w", "description": "put the new group under the world", "data_type": "boolean"}, "empty": {"short": "em", "description": "create an empty group (with no objects in it)", "data_type": "boolean"}, "absolute": {"short": "a", "description": "preserve existing world object transformations (overall object transformation is preserved by modifying the objects local transformation) [default]", "data_type": "boolean"}}, "maya_command_url": {"textures": {"short": "tex", "description": "List textures.", "data_type": "boolean"}, "selection": {"short": "sl", "description": "List objects that are currently selected.", "data_type": "boolean"}, "defaultNodes": {"short": "dn", "description": "Returns default nodes. A default node is one that Maya creates automatically and does not get saved out with the scene, although some of its attribute values may.", "data_type": "boolean"}, "visible": {"short": "v", "description": "List only visible dag nodes.", "data_type": "boolean"}, "references": {"short": "rf", "description": "List references associated with files. Excludes special reference nodes such as the sharedReferenceNode and unknown reference nodes.", "data_type": "boolean"}, "flatten": {"short": "fl", "description": "Flattens the returned list of objects so that each component is identified individually.", "data_type": "boolean"}, "nodeTypes": {"short": "nt", "description": "Lists all registered node types.", "data_type": "boolean"}, "persistentNodes": {"short": "pn", "description": "Returns persistent nodes, which are nodes that stay in the Maya session after a file > new. These are a special class of default nodes that do not get reset on file > new. Ex: itemFilter and selectionListOperator nodes.", "data_type": "boolean"}, "intermediateObjects": {"short": "io", "description": "List only intermediate dag nodes.", "data_type": "boolean"}, "leaf": {"short": "lf", "description": "List all leaf nodes in Dag. This flag is a modifier and must be used in conjunction with the -dag flag.", "data_type": "boolean"}, "recursive": {"short": "r", "description": "When set to true, this command will look for name matches in all namespaces. When set to false, this command will only look for matches in namespaces that are requested (e.g. by specifying a name containing the ':'... \"ns1:pSphere1\").", "data_type": "boolean"}, "objectsOnly": {"short": "o", "description": "When this flag is set only object names will be returned and components/attributes will be ignored.", "data_type": "boolean"}, "lockedNodes": {"short": "ln", "description": "Returns locked nodes, which cannot be deleted or renamed. However, their status may change.", "data_type": "boolean"}, "cameras": {"short": "ca", "description": "List camera shapes.", "data_type": "boolean"}, "tail": {"short": "tl", "description": "This flag specifies the maximum number of elements to be returned from the end of the list of items. Note: each    type flag will return at most this many items so if multiple type flags are specified then the number of items returned can be greater than this amount", "data_type": "int"}, "long": {"short": "l", "description": "Return full path names for Dag objects. By default the shortest unique name is returned.", "data_type": "boolean"}, "lights": {"short": "lt", "description": "List light shapes.", "data_type": "boolean"}, "live": {"short": "lv", "description": "List objects that are currently live.", "data_type": "boolean"}, "containerType": {"short": "ct", "description": "List containers with the specified user-defined type.  This flag cannot be used in conjunction with the type or exactType flag.", "data_type": "string"}, "preSelectHilite": {"short": "psh", "description": "List components that are currently hilited for pre-selection.", "data_type": "boolean"}, "type": {"short": "typ", "description": "List all objects of the specified type. This flag can appear multiple times on the command line. Note: the type passed to this flag is the same type name returned from the showType flag. Note: some selection items in Maya do not have a specific object/data type associated with them and will return \"untyped\" when listed with this flag.  This flag cannot be used in conjunction with the exactType or excludeType flag.", "data_type": "string"}, "containers": {"short": "con", "description": "List containers. Includes both standard containers as well as other types of containers such as dagContainers.", "data_type": "boolean"}, "shortNames": {"short": "sn", "description": "Return short attribute names. By default long attribute names are returned.", "data_type": "boolean"}, "renderResolutions": {"short": "rr", "description": "List render resolutions.", "data_type": "boolean"}, "head": {"short": "hd", "description": "This flag  specifies the maximum number of elements to be returned from the beginning of the list of items. Note: each type flag will return at most this many items so if multiple type flags are specified then the number of items returned can be greater than this amount.", "data_type": "int"}, "showType": {"short": "st", "description": "List the type of each object after its name.", "data_type": "boolean"}, "dependencyNodes": {"short": "dep", "description": "List dependency nodes. (including Dag objects)", "data_type": "boolean"}, "renderGlobals": {"short": "rg", "description": "List render globals.", "data_type": "boolean"}, "orderedSelection": {"short": "os", "description": "List objects and components that are currently selected in their order of selection.  This flag depends on the value of the -tso/trackSelectionOrder flag of the selectPref command.  If that flag is not enabled than this flag will return the same thing as the -sl/selection flag would.", "data_type": "boolean"}, "renderQualities": {"short": "rq", "description": "List named render qualities.", "data_type": "boolean"}, "renderSetups": {"short": "rs", "description": "Alias for -renderGlobals.", "data_type": "boolean"}, "referencedNodes": {"short": "rn", "description": "Returns referenced nodes. Referenced nodes are read only.", "data_type": "boolean"}, "readOnly": {"short": "ro", "description": "Returns referenced nodes. Referenced nodes are read only. NOTE: Obsolete. Please use \"-referencedNodes\".", "data_type": "boolean"}, "templated": {"short": "tm", "description": "List only templated dag nodes.", "data_type": "boolean"}, "invisible": {"short": "iv", "description": "List only invisible dag nodes.", "data_type": "boolean"}, "hilite": {"short": "hl", "description": "List objects that are currently hilited for component selection.", "data_type": "boolean"}, "untemplated": {"short": "ut", "description": "List only un-templated dag nodes.", "data_type": "boolean"}, "partitions": {"short": "pr", "description": "List partitions.", "data_type": "boolean"}, "ghost": {"short": "gh", "description": "List ghosting objects.", "data_type": "boolean"}, "uuid": {"short": "uid", "description": "Return node UUIDs instead of names. Note that there are no \"UUID paths\" - combining this flag with e.g. the -long flag will not result in a path formed of node UUIDs.", "data_type": "boolean"}, "sets": {"short": "set", "description": "List sets.", "data_type": "boolean"}, "geometry": {"short": "g", "description": "List geometric Dag objects.", "data_type": "boolean"}, "assemblies": {"short": "assemblies", "description": "List top level transform Dag objects", "data_type": "boolean"}, "noIntermediate": {"short": "ni", "description": "List only non intermediate dag nodes.", "data_type": "boolean"}, "modified": {"short": "mod", "description": "When this flag is set, only nodes modified since the last save will be returned.", "data_type": "boolean"}, "allPaths": {"short": "ap", "description": "List all paths to nodes in DAG. This flag only works if -dag is also specified or if an object name is supplied.", "data_type": "boolean"}, "shapes": {"short": "s", "description": "List shape objects.", "data_type": "boolean"}, "materials": {"short": "mat", "description": "List materials or shading groups.", "data_type": "boolean"}, "excludeType": {"short": "ext", "description": "List all objects that are not of the specified type. This flag can appear multiple times on the command line. Note: the type passed to this flag is the same type name returned from the showType flag.  This flag cannot be used in conjunction with the type or exactType flag.", "data_type": "string"}, "planes": {"short": "pl", "description": "List construction plane shapes.", "data_type": "boolean"}, "exactType": {"short": "et", "description": "List all objects of the specified type, but not objects that are descendents of that type. This flag can appear multiple times on the command line. Note: the type passed to this flag is the same type name returned from the showType flag.  This flag cannot be used in conjunction with the type or excludeType flag.", "data_type": "string"}, "showNamespace": {"short": "sns", "description": "Show the namespace of each object after the object name.  This flag cannot be used in conjunction with the showType flag.", "data_type": "boolean"}, "absoluteName": {"short": "an", "description": "This flag can be used in conjunction with the showNamespace flag to specify that the namespace(s) returned by the command be in absolute namespace format. The absolute name of the namespace is a full namespace path, starting from the root namespace \":\" and including all parent namespaces.  For example \":ns:ball\" is an absolute namespace name while \"ns:ball\" is not. The absolute namespace name is invariant and is not affected by the current namespace or relative namespace modes.", "data_type": "boolean"}, "undeletable": {"short": "ud", "description": "Returns nodes that cannot be deleted (which includes locked nodes). These nodes also cannot be renamed.", "data_type": "boolean"}, "dagObjects": {"short": "dag", "description": "List Dag objects of any type. If object name arguments are passed to the command then this flag will list all Dag objects below the specified object(s).", "data_type": "boolean"}, "transforms": {"short": "tr", "description": "List transform objects.", "data_type": "boolean"}}, "ls": {"shortNames": {"short": "sn", "description": "Return short attribute names. By default long attribute names are returned.", "data_type": "boolean"}, "selection": {"short": "sl", "description": "List objects that are currently selected.", "data_type": "boolean"}, "defaultNodes": {"short": "dn", "description": "Returns default nodes. A default node is one that Maya creates automatically and does not get saved out with the scene, although some of its attribute values may.", "data_type": "boolean"}, "modified": {"short": "mod", "description": "When this flag is set, only nodes modified since the last save will be returned.", "data_type": "boolean"}, "visible": {"short": "v", "description": "List only visible dag nodes.", "data_type": "boolean"}, "references": {"short": "rf", "description": "List references associated with files. Excludes special reference nodes such as the sharedReferenceNode and unknown reference nodes.", "data_type": "boolean"}, "flatten": {"short": "fl", "description": "Flattens the returned list of objects so that each component is identified individually.", "data_type": "boolean"}, "nodeTypes": {"short": "nt", "description": "Lists all registered node types.", "data_type": "boolean"}, "persistentNodes": {"short": "pn", "description": "Returns persistent nodes, which are nodes that stay in the Maya session after a file > new. These are a special class of default nodes that do not get reset on file > new. Ex: itemFilter and selectionListOperator nodes.", "data_type": "boolean"}, "intermediateObjects": {"short": "io", "description": "List only intermediate dag nodes.", "data_type": "boolean"}, "leaf": {"short": "lf", "description": "List all leaf nodes in Dag. This flag is a modifier and must be used in conjunction with the -dag flag.", "data_type": "boolean"}, "recursive": {"short": "r", "description": "When set to true, this command will look for name matches in all namespaces. When set to false, this command will only look for matches in namespaces that are requested (e.g. by specifying a name containing the ':'... \"ns1:pSphere1\").", "data_type": "boolean"}, "objectsOnly": {"short": "o", "description": "When this flag is set only object names will be returned and components/attributes will be ignored.", "data_type": "boolean"}, "lockedNodes": {"short": "ln", "description": "Returns locked nodes, which cannot be deleted or renamed. However, their status may change.", "data_type": "boolean"}, "cameras": {"short": "ca", "description": "List camera shapes.", "data_type": "boolean"}, "tail": {"short": "tl", "description": "This flag specifies the maximum number of elements to be returned from the end of the list of items. Note: each    type flag will return at most this many items so if multiple type flags are specified then the number of items returned can be greater than this amount", "data_type": "int"}, "long": {"short": "l", "description": "Return full path names for Dag objects. By default the shortest unique name is returned.", "data_type": "boolean"}, "showNamespace": {"short": "sns", "description": "Show the namespace of each object after the object name.  This flag cannot be used in conjunction with the showType flag.", "data_type": "boolean"}, "lights": {"short": "lt", "description": "List light shapes.", "data_type": "boolean"}, "live": {"short": "lv", "description": "List objects that are currently live.", "data_type": "boolean"}, "planes": {"short": "pl", "description": "List construction plane shapes.", "data_type": "boolean"}, "containerType": {"short": "ct", "description": "List containers with the specified user-defined type.  This flag cannot be used in conjunction with the type or exactType flag.", "data_type": "string"}, "preSelectHilite": {"short": "psh", "description": "List components that are currently hilited for pre-selection.", "data_type": "boolean"}, "type": {"short": "typ", "description": "List all objects of the specified type. This flag can appear multiple times on the command line. Note: the type passed to this flag is the same type name returned from the showType flag. Note: some selection items in Maya do not have a specific object/data type associated with them and will return \"untyped\" when listed with this flag.  This flag cannot be used in conjunction with the exactType or excludeType flag.", "data_type": "string"}, "containers": {"short": "con", "description": "List containers. Includes both standard containers as well as other types of containers such as dagContainers.", "data_type": "boolean"}, "textures": {"short": "tex", "description": "List textures.", "data_type": "boolean"}, "ghost": {"short": "gh", "description": "List ghosting objects.", "data_type": "boolean"}, "head": {"short": "hd", "description": "This flag  specifies the maximum number of elements to be returned from the beginning of the list of items. Note: each type flag will return at most this many items so if multiple type flags are specified then the number of items returned can be greater than this amount.", "data_type": "int"}, "showType": {"short": "st", "description": "List the type of each object after its name.", "data_type": "boolean"}, "dependencyNodes": {"short": "dep", "description": "List dependency nodes. (including Dag objects)", "data_type": "boolean"}, "orderedSelection": {"short": "os", "description": "List objects and components that are currently selected in their order of selection.  This flag depends on the value of the -tso/trackSelectionOrder flag of the selectPref command.  If that flag is not enabled than this flag will return the same thing as the -sl/selection flag would.", "data_type": "boolean"}, "renderQualities": {"short": "rq", "description": "List named render qualities.", "data_type": "boolean"}, "renderSetups": {"short": "rs", "description": "Alias for -renderGlobals.", "data_type": "boolean"}, "templated": {"short": "tm", "description": "List only templated dag nodes.", "data_type": "boolean"}, "invisible": {"short": "iv", "description": "List only invisible dag nodes.", "data_type": "boolean"}, "hilite": {"short": "hl", "description": "List objects that are currently hilited for component selection.", "data_type": "boolean"}, "untemplated": {"short": "ut", "description": "List only un-templated dag nodes.", "data_type": "boolean"}, "partitions": {"short": "pr", "description": "List partitions.", "data_type": "boolean"}, "renderResolutions": {"short": "rr", "description": "List render resolutions.", "data_type": "boolean"}, "uuid": {"short": "uid", "description": "Return node UUIDs instead of names. Note that there are no \"UUID paths\" - combining this flag with e.g. the -long flag will not result in a path formed of node UUIDs.", "data_type": "boolean"}, "sets": {"short": "set", "description": "List sets.", "data_type": "boolean"}, "geometry": {"short": "g", "description": "List geometric Dag objects.", "data_type": "boolean"}, "assemblies": {"short": "assemblies", "description": "List top level transform Dag objects", "data_type": "boolean"}, "noIntermediate": {"short": "ni", "description": "List only non intermediate dag nodes.", "data_type": "boolean"}, "readOnly": {"short": "ro", "description": "Returns referenced nodes. Referenced nodes are read only. NOTE: Obsolete. Please use \"-referencedNodes\".", "data_type": "boolean"}, "allPaths": {"short": "ap", "description": "List all paths to nodes in DAG. This flag only works if -dag is also specified or if an object name is supplied.", "data_type": "boolean"}, "shapes": {"short": "s", "description": "List shape objects.", "data_type": "boolean"}, "materials": {"short": "mat", "description": "List materials or shading groups.", "data_type": "boolean"}, "excludeType": {"short": "ext", "description": "List all objects that are not of the specified type. This flag can appear multiple times on the command line. Note: the type passed to this flag is the same type name returned from the showType flag.  This flag cannot be used in conjunction with the type or exactType flag.", "data_type": "string"}, "referencedNodes": {"short": "rn", "description": "Returns referenced nodes. Referenced nodes are read only.", "data_type": "boolean"}, "exactType": {"short": "et", "description": "List all objects of the specified type, but not objects that are descendents of that type. This flag can appear multiple times on the command line. Note: the type passed to this flag is the same type name returned from the showType flag.  This flag cannot be used in conjunction with the type or excludeType flag.", "data_type": "string"}, "renderGlobals": {"short": "rg", "description": "List render globals.", "data_type": "boolean"}, "absoluteName": {"short": "an", "description": "This flag can be used in conjunction with the showNamespace flag to specify that the namespace(s) returned by the command be in absolute namespace format. The absolute name of the namespace is a full namespace path, starting from the root namespace \":\" and including all parent namespaces.  For example \":ns:ball\" is an absolute namespace name while \"ns:ball\" is not. The absolute namespace name is invariant and is not affected by the current namespace or relative namespace modes.", "data_type": "boolean"}, "undeletable": {"short": "ud", "description": "Returns nodes that cannot be deleted (which includes locked nodes). These nodes also cannot be renamed.", "data_type": "boolean"}, "dagObjects": {"short": "dag", "description": "List Dag objects of any type. If object name arguments are passed to the command then this flag will list all Dag objects below the specified object(s).", "data_type": "boolean"}, "transforms": {"short": "tr", "description": "List transform objects.", "data_type": "boolean"}}, "http://help.autodesk.com/cloudhelp/2017/ENU/Maya-Tech-Docs/CommandsPython/ls.html": {"textures": {"short": "tex", "description": "List textures.", "data_type": "boolean"}, "selection": {"short": "sl", "description": "List objects that are currently selected.", "data_type": "boolean"}, "defaultNodes": {"short": "dn", "description": "Returns default nodes. A default node is one that Maya creates automatically and does not get saved out with the scene, although some of its attribute values may.", "data_type": "boolean"}, "visible": {"short": "v", "description": "List only visible dag nodes.", "data_type": "boolean"}, "references": {"short": "rf", "description": "List references associated with files. Excludes special reference nodes such as the sharedReferenceNode and unknown reference nodes.", "data_type": "boolean"}, "flatten": {"short": "fl", "description": "Flattens the returned list of objects so that each component is identified individually.", "data_type": "boolean"}, "nodeTypes": {"short": "nt", "description": "Lists all registered node types.", "data_type": "boolean"}, "persistentNodes": {"short": "pn", "description": "Returns persistent nodes, which are nodes that stay in the Maya session after a file > new. These are a special class of default nodes that do not get reset on file > new. Ex: itemFilter and selectionListOperator nodes.", "data_type": "boolean"}, "intermediateObjects": {"short": "io", "description": "List only intermediate dag nodes.", "data_type": "boolean"}, "leaf": {"short": "lf", "description": "List all leaf nodes in Dag. This flag is a modifier and must be used in conjunction with the -dag flag.", "data_type": "boolean"}, "recursive": {"short": "r", "description": "When set to true, this command will look for name matches in all namespaces. When set to false, this command will only look for matches in namespaces that are requested (e.g. by specifying a name containing the ':'... \"ns1:pSphere1\").", "data_type": "boolean"}, "objectsOnly": {"short": "o", "description": "When this flag is set only object names will be returned and components/attributes will be ignored.", "data_type": "boolean"}, "lockedNodes": {"short": "ln", "description": "Returns locked nodes, which cannot be deleted or renamed. However, their status may change.", "data_type": "boolean"}, "cameras": {"short": "ca", "description": "List camera shapes.", "data_type": "boolean"}, "live": {"short": "lv", "description": "List objects that are currently live.", "data_type": "boolean"}, "long": {"short": "l", "description": "Return full path names for Dag objects. By default the shortest unique name is returned.", "data_type": "boolean"}, "showNamespace": {"short": "sns", "description": "Show the namespace of each object after the object name.  This flag cannot be used in conjunction with the showType flag.", "data_type": "boolean"}, "lights": {"short": "lt", "description": "List light shapes.", "data_type": "boolean"}, "tail": {"short": "tl", "description": "This flag specifies the maximum number of elements to be returned from the end of the list of items. Note: each    type flag will return at most this many items so if multiple type flags are specified then the number of items returned can be greater than this amount", "data_type": "int"}, "containerType": {"short": "ct", "description": "List containers with the specified user-defined type.  This flag cannot be used in conjunction with the type or exactType flag.", "data_type": "string"}, "preSelectHilite": {"short": "psh", "description": "List components that are currently hilited for pre-selection.", "data_type": "boolean"}, "type": {"short": "typ", "description": "List all objects of the specified type. This flag can appear multiple times on the command line. Note: the type passed to this flag is the same type name returned from the showType flag. Note: some selection items in Maya do not have a specific object/data type associated with them and will return \"untyped\" when listed with this flag.  This flag cannot be used in conjunction with the exactType or excludeType flag.", "data_type": "string"}, "containers": {"short": "con", "description": "List containers. Includes both standard containers as well as other types of containers such as dagContainers.", "data_type": "boolean"}, "shortNames": {"short": "sn", "description": "Return short attribute names. By default long attribute names are returned.", "data_type": "boolean"}, "renderResolutions": {"short": "rr", "description": "List render resolutions.", "data_type": "boolean"}, "head": {"short": "hd", "description": "This flag  specifies the maximum number of elements to be returned from the beginning of the list of items. Note: each type flag will return at most this many items so if multiple type flags are specified then the number of items returned can be greater than this amount.", "data_type": "int"}, "showType": {"short": "st", "description": "List the type of each object after its name.", "data_type": "boolean"}, "dependencyNodes": {"short": "dep", "description": "List dependency nodes. (including Dag objects)", "data_type": "boolean"}, "orderedSelection": {"short": "os", "description": "List objects and components that are currently selected in their order of selection.  This flag depends on the value of the -tso/trackSelectionOrder flag of the selectPref command.  If that flag is not enabled than this flag will return the same thing as the -sl/selection flag would.", "data_type": "boolean"}, "renderQualities": {"short": "rq", "description": "List named render qualities.", "data_type": "boolean"}, "renderSetups": {"short": "rs", "description": "Alias for -renderGlobals.", "data_type": "boolean"}, "referencedNodes": {"short": "rn", "description": "Returns referenced nodes. Referenced nodes are read only.", "data_type": "boolean"}, "readOnly": {"short": "ro", "description": "Returns referenced nodes. Referenced nodes are read only. NOTE: Obsolete. Please use \"-referencedNodes\".", "data_type": "boolean"}, "templated": {"short": "tm", "description": "List only templated dag nodes.", "data_type": "boolean"}, "invisible": {"short": "iv", "description": "List only invisible dag nodes.", "data_type": "boolean"}, "hilite": {"short": "hl", "description": "List objects that are currently hilited for component selection.", "data_type": "boolean"}, "untemplated": {"short": "ut", "description": "List only un-templated dag nodes.", "data_type": "boolean"}, "partitions": {"short": "pr", "description": "List partitions.", "data_type": "boolean"}, "ghost": {"short": "gh", "description": "List ghosting objects.", "data_type": "boolean"}, "uuid": {"short": "uid", "description": "Return node UUIDs instead of names. Note that there are no \"UUID paths\" - combining this flag with e.g. the -long flag will not result in a path formed of node UUIDs.", "data_type": "boolean"}, "sets": {"short": "set", "description": "List sets.", "data_type": "boolean"}, "geometry": {"short": "g", "description": "List geometric Dag objects.", "data_type": "boolean"}, "assemblies": {"short": "assemblies", "description": "List top level transform Dag objects", "data_type": "boolean"}, "noIntermediate": {"short": "ni", "description": "List only non intermediate dag nodes.", "data_type": "boolean"}, "modified": {"short": "mod", "description": "When this flag is set, only nodes modified since the last save will be returned.", "data_type": "boolean"}, "allPaths": {"short": "ap", "description": "List all paths to nodes in DAG. This flag only works if -dag is also specified or if an object name is supplied.", "data_type": "boolean"}, "shapes": {"short": "s", "description": "List shape objects.", "data_type": "boolean"}, "materials": {"short": "mat", "description": "List materials or shading groups.", "data_type": "boolean"}, "excludeType": {"short": "ext", "description": "List all objects that are not of the specified type. This flag can appear multiple times on the command line. Note: the type passed to this flag is the same type name returned from the showType flag.  This flag cannot be used in conjunction with the type or exactType flag.", "data_type": "string"}, "planes": {"short": "pl", "description": "List construction plane shapes.", "data_type": "boolean"}, "exactType": {"short": "et", "description": "List all objects of the specified type, but not objects that are descendents of that type. This flag can appear multiple times on the command line. Note: the type passed to this flag is the same type name returned from the showType flag.  This flag cannot be used in conjunction with the type or excludeType flag.", "data_type": "string"}, "renderGlobals": {"short": "rg", "description": "List render globals.", "data_type": "boolean"}, "absoluteName": {"short": "an", "description": "This flag can be used in conjunction with the showNamespace flag to specify that the namespace(s) returned by the command be in absolute namespace format. The absolute name of the namespace is a full namespace path, starting from the root namespace \":\" and including all parent namespaces.  For example \":ns:ball\" is an absolute namespace name while \"ns:ball\" is not. The absolute namespace name is invariant and is not affected by the current namespace or relative namespace modes.", "data_type": "boolean"}, "undeletable": {"short": "ud", "description": "Returns nodes that cannot be deleted (which includes locked nodes). These nodes also cannot be renamed.", "data_type": "boolean"}, "dagObjects": {"short": "dag", "description": "List Dag objects of any type. If object name arguments are passed to the command then this flag will list all Dag objects below the specified object(s).", "data_type": "boolean"}, "transforms": {"short": "tr", "description": "List transform objects.", "data_type": "boolean"}}, "http://help.autodesk.com/cloudhelp/2017/ENU/Maya-Tech-Docs/CommandsPython/group.html": {"name": {"short": "n", "description": "Assign given name to new group node.", "data_type": "string"}, "parent": {"short": "p", "description": "put the new group under the given parent", "data_type": "string"}, "relative": {"short": "r", "description": "preserve existing local object transformations (relative to the new group node)", "data_type": "boolean"}, "useAsGroup": {"short": "uag", "description": "Use the specified node as the group node. The specified node must be derived from the transform node and must not have any existing parents or children.", "data_type": "string"}, "world": {"short": "w", "description": "put the new group under the world", "data_type": "boolean"}, "empty": {"short": "em", "description": "create an empty group (with no objects in it)", "data_type": "boolean"}, "absolute": {"short": "a", "description": "preserve existing world object transformations (overall object transformation is preserved by modifying the objects local transformation) [default]", "data_type": "boolean"}}}
+{
+    "http://help.autodesk.com/cloudhelp/2017/ENU/Maya-Tech-Docs/CommandsPython/group.html": {
+        "absolute": {
+            "data_type": "boolean", 
+            "description": "preserve existing world object transformations (overall object transformation is preserved by modifying the objects local transformation) [default]", 
+            "short": "a"
+        }, 
+        "empty": {
+            "data_type": "boolean", 
+            "description": "create an empty group (with no objects in it)", 
+            "short": "em"
+        }, 
+        "name": {
+            "data_type": "string", 
+            "description": "Assign given name to new group node.", 
+            "short": "n"
+        }, 
+        "parent": {
+            "data_type": "string", 
+            "description": "put the new group under the given parent", 
+            "short": "p"
+        }, 
+        "relative": {
+            "data_type": "boolean", 
+            "description": "preserve existing local object transformations (relative to the new group node)", 
+            "short": "r"
+        }, 
+        "useAsGroup": {
+            "data_type": "string", 
+            "description": "Use the specified node as the group node. The specified node must be derived from the transform node and must not have any existing parents or children.", 
+            "short": "uag"
+        }, 
+        "world": {
+            "data_type": "boolean", 
+            "description": "put the new group under the world", 
+            "short": "w"
+        }
+    }, 
+    "http://help.autodesk.com/cloudhelp/2017/ENU/Maya-Tech-Docs/CommandsPython/joint.html": {
+        "absolute": {
+            "data_type": "boolean", 
+            "description": "The joint center position is in absolute world coordinates. (This is the default.)", 
+            "short": "a"
+        }, 
+        "angleX": {
+            "data_type": "angle", 
+            "description": "Set the x-axis angle. When queried, this flag returns a float.", 
+            "short": "ax"
+        }, 
+        "angleY": {
+            "data_type": "angle", 
+            "description": "Set the y-axis angle. When queried, this flag returns a float.", 
+            "short": "ay"
+        }, 
+        "angleZ": {
+            "data_type": "angle", 
+            "description": "Set the z-axis angle. When queried, this flag returns a float.", 
+            "short": "az"
+        }, 
+        "assumePreferredAngles": {
+            "data_type": "boolean", 
+            "description": "Meaningful only in the edit mode. It sets the joint angles to the corresponding preferred angles.", 
+            "short": "apa"
+        }, 
+        "automaticLimits": {
+            "data_type": "boolean", 
+            "description": "Meaningful only in edit mode. It sets the joint to appropriate hinge joint with joint limits. It modifies the joint only if (a) it connects exactly to two joints (one parent, one child), (b) it does not lie on the line drawn between the two connected joints, and the plane it forms with the two connected joints is perpendicular to one of its rotation axes.", 
+            "short": "al"
+        }, 
+        "children": {
+            "data_type": "boolean", 
+            "description": "It tells the command to apply all the edit options not only to the selected joints, but also to their descendent joints in the DAG.", 
+            "short": "ch"
+        }, 
+        "component": {
+            "data_type": "boolean", 
+            "description": "Use with the -position switch to position the joint relative to its parent (like -relative) but to compute new positions for all children joints so their world coordinate positions do not change.", 
+            "short": "co"
+        }, 
+        "degreeOfFreedom": {
+            "data_type": "string", 
+            "description": "Specifies the degrees of freedom for the IK. Valid strings consist of non-duplicate letters from x, y, and z. The letters in the string indicate what rotations are to be used by IK. The order a letter appear in the string does not matter. Examples are x, yz, xyz. When queried, this flag returns a string. Modifying dof will change the locking state of the corresponding rotation attributes. The rule is: if an rotation is turned into a dof, it will be unlocked if it is currently locked. When it is turned into a non-dof, it will be locked if it is not currently locked.", 
+            "short": "dof"
+        }, 
+        "exists": {
+            "data_type": "string", 
+            "description": "Does the named joint exist? When queried, this flag returns a boolean.", 
+            "short": "ex"
+        }, 
+        "limitSwitchX": {
+            "data_type": "boolean", 
+            "description": "Use the limit the x-axis rotation? When queried, this flag returns a boolean.", 
+            "short": "lsx"
+        }, 
+        "limitSwitchY": {
+            "data_type": "boolean", 
+            "description": "Use the limit the y-axis rotation? When queried, this flag returns a boolean.", 
+            "short": "lsy"
+        }, 
+        "limitSwitchZ": {
+            "data_type": "boolean", 
+            "description": "Use the Limit the z-axis rotation? When queried, this flag returns a boolean.", 
+            "short": "lsz"
+        }, 
+        "limitX": {
+            "data_type": "[angle, angle]", 
+            "description": "Set lower and upper limits on the x-axis of rotation.  Also turns on the joint limit. When queried, this flag returns 2 floats.", 
+            "short": "lx"
+        }, 
+        "limitY": {
+            "data_type": "[angle, angle]", 
+            "description": "Set lower and upper limits on the y-axis of rotation.  Also turns on the joint limit. When queried, this flag returns 2 floats.", 
+            "short": "ly"
+        }, 
+        "limitZ": {
+            "data_type": "[angle, angle]", 
+            "description": "Set lower and upper limits on the z-axis of rotation.  Also turns on the joint limit. When queried, this flag returns 2 floats.", 
+            "short": "lz"
+        }, 
+        "name": {
+            "data_type": "string", 
+            "description": "Specifies the name of the joint. When queried, this flag returns a string.", 
+            "short": "n"
+        }, 
+        "orientJoint": {
+            "data_type": "string", 
+            "description": "The argument can be one of the following strings: xyz, yzx, zxy, zyx, yxz, xzy, none.  It modifies the joint orientation and scale orientation so that the axis indicated by the first letter in the argument will be aligned with the vector from this joint to its first child joint. For example, if the argument is \"xyz\", the x-axis will point towards the child joint.  The alignment of the remaining two joint orient axes are dependent on whether or not the -sao/-secondaryAxisOrient flag is used. If the -sao flag is used, see the documentation for that flag for how the remaining axes are aligned.  In the absence of a user specification for the secondary axis orientation, the rotation axis indicated by the last letter in the argument will be aligned with the vector perpendicular to first axis and the vector from this joint to its parent joint.  The remaining axis is aligned according the right hand rule.  If the argument is \"none\", the joint orientation will be set to zero and its effect to the hierarchy below will be offset by modifying the scale orientation.  The flag will be ignored if:  A. the joint has non-zero rotations when the argument is not \"none\".  B. the joint does not have child joint, or the distance to the child joint is zero when the argument is not \"none\".  C. either flag -o or -so is set.", 
+            "short": "oj"
+        }, 
+        "orientation": {
+            "data_type": "[angle, angle, angle]", 
+            "description": "The joint orientation. When queried, this flag returns 3 floats.", 
+            "short": "o"
+        }, 
+        "position": {
+            "data_type": "[linear, linear, linear]", 
+            "description": "Specifies the position of the center of the joint. This position may be relative to the joint's parent or in absolute world coordinates (see -r and -a below). When queried, this flag returns 3 floats.", 
+            "short": "p"
+        }, 
+        "radius": {
+            "data_type": "float", 
+            "description": "Specifies the joint radius.", 
+            "short": "rad"
+        }, 
+        "relative": {
+            "data_type": "boolean", 
+            "description": "The joint center position is relative to the joint's parent.", 
+            "short": "r"
+        }, 
+        "rotationOrder": {
+            "data_type": "string", 
+            "description": "The rotation order of the joint. The argument can be one of the following strings: xyz, yzx, zxy, zyx, yxz, xzy.", 
+            "short": "roo"
+        }, 
+        "scale": {
+            "data_type": "[float, float, float]", 
+            "description": "Scale of the joint. When queried, this flag returns 3 floats.", 
+            "short": "s"
+        }, 
+        "scaleCompensate": {
+            "data_type": "boolean", 
+            "description": "It sets the scaleCompenstate attribute of the joint to the given argument. When this is true, the scale of the parent joint will be compensated before any rotation of this joint is applied, so that the bone to the joint is scaled but not the bones to its child joints. When queried, this flag returns an boolean.", 
+            "short": "sc"
+        }, 
+        "scaleOrientation": {
+            "data_type": "[angle, angle, angle]", 
+            "description": "Set the orientation of the coordinate axes for scaling. When queried, this flag returns 3 floats.", 
+            "short": "so"
+        }, 
+        "secondaryAxisOrient": {
+            "data_type": "string", 
+            "description": "The argument can be one of the following strings: xup, xdown, yup, ydown, zup, zdown, none.  This flag is used in conjunction with the -oj/orientJoint flag. It specifies the scene axis that the second axis should align with. For example, a flag combination of \"-oj yzx -sao yup\" would result in the y-axis pointing down the bone, the z-axis oriented with the scene's positive y-axis, and the x-axis oriented according to the right hand rule.", 
+            "short": "sao"
+        }, 
+        "setPreferredAngles": {
+            "data_type": "boolean", 
+            "description": "Meaningful only in the edit mode. It sets the preferred angles to the current joint angles.", 
+            "short": "spa"
+        }, 
+        "stiffnessX": {
+            "data_type": "float", 
+            "description": "Set the stiffness (from 0 to 100.0) for x-axis. When queried, this flag returns a float.", 
+            "short": "stx"
+        }, 
+        "stiffnessY": {
+            "data_type": "float", 
+            "description": "Set the stiffness (from 0 to 100.0) for y-axis. When queried, this flag returns a float.", 
+            "short": "sty"
+        }, 
+        "stiffnessZ": {
+            "data_type": "float", 
+            "description": "Set the stiffness (from 0 to 100.0) for z-axis. When queried, this flag returns a float.", 
+            "short": "stz"
+        }, 
+        "symmetry": {
+            "data_type": "boolean", 
+            "description": "Create a symmetric joint from the current joint.", 
+            "short": "sym"
+        }, 
+        "symmetryAxis": {
+            "data_type": "string", 
+            "description": "This flag specifies the axis used to mirror symmetric joints. Any combination of x, y, z can be used. This option is only used when the symmetry flag is set to True.", 
+            "short": "sa"
+        }, 
+        "zeroScaleOrient": {
+            "data_type": "boolean", 
+            "description": "It sets the scale orientation to zero and compensate the change by modifing the translation and joint orientation for joint or rotation for general transform of all its child transformations.  The flag will be ignored if the flag -so is set.", 
+            "short": "zso"
+        }
+    }, 
+    "http://help.autodesk.com/cloudhelp/2017/ENU/Maya-Tech-Docs/CommandsPython/ls.html": {
+        "absoluteName": {
+            "data_type": "boolean", 
+            "description": "This flag can be used in conjunction with the showNamespace flag to specify that the namespace(s) returned by the command be in absolute namespace format. The absolute name of the namespace is a full namespace path, starting from the root namespace \":\" and including all parent namespaces.  For example \":ns:ball\" is an absolute namespace name while \"ns:ball\" is not. The absolute namespace name is invariant and is not affected by the current namespace or relative namespace modes.", 
+            "short": "an"
+        }, 
+        "allPaths": {
+            "data_type": "boolean", 
+            "description": "List all paths to nodes in DAG. This flag only works if -dag is also specified or if an object name is supplied.", 
+            "short": "ap"
+        }, 
+        "assemblies": {
+            "data_type": "boolean", 
+            "description": "List top level transform Dag objects", 
+            "short": "assemblies"
+        }, 
+        "cameras": {
+            "data_type": "boolean", 
+            "description": "List camera shapes.", 
+            "short": "ca"
+        }, 
+        "containerType": {
+            "data_type": "string", 
+            "description": "List containers with the specified user-defined type.  This flag cannot be used in conjunction with the type or exactType flag.", 
+            "short": "ct"
+        }, 
+        "containers": {
+            "data_type": "boolean", 
+            "description": "List containers. Includes both standard containers as well as other types of containers such as dagContainers.", 
+            "short": "con"
+        }, 
+        "dagObjects": {
+            "data_type": "boolean", 
+            "description": "List Dag objects of any type. If object name arguments are passed to the command then this flag will list all Dag objects below the specified object(s).", 
+            "short": "dag"
+        }, 
+        "defaultNodes": {
+            "data_type": "boolean", 
+            "description": "Returns default nodes. A default node is one that Maya creates automatically and does not get saved out with the scene, although some of its attribute values may.", 
+            "short": "dn"
+        }, 
+        "dependencyNodes": {
+            "data_type": "boolean", 
+            "description": "List dependency nodes. (including Dag objects)", 
+            "short": "dep"
+        }, 
+        "exactType": {
+            "data_type": "string", 
+            "description": "List all objects of the specified type, but not objects that are descendents of that type. This flag can appear multiple times on the command line. Note: the type passed to this flag is the same type name returned from the showType flag.  This flag cannot be used in conjunction with the type or excludeType flag.", 
+            "short": "et"
+        }, 
+        "excludeType": {
+            "data_type": "string", 
+            "description": "List all objects that are not of the specified type. This flag can appear multiple times on the command line. Note: the type passed to this flag is the same type name returned from the showType flag.  This flag cannot be used in conjunction with the type or exactType flag.", 
+            "short": "ext"
+        }, 
+        "flatten": {
+            "data_type": "boolean", 
+            "description": "Flattens the returned list of objects so that each component is identified individually.", 
+            "short": "fl"
+        }, 
+        "geometry": {
+            "data_type": "boolean", 
+            "description": "List geometric Dag objects.", 
+            "short": "g"
+        }, 
+        "ghost": {
+            "data_type": "boolean", 
+            "description": "List ghosting objects.", 
+            "short": "gh"
+        }, 
+        "head": {
+            "data_type": "int", 
+            "description": "This flag  specifies the maximum number of elements to be returned from the beginning of the list of items. Note: each type flag will return at most this many items so if multiple type flags are specified then the number of items returned can be greater than this amount.", 
+            "short": "hd"
+        }, 
+        "hilite": {
+            "data_type": "boolean", 
+            "description": "List objects that are currently hilited for component selection.", 
+            "short": "hl"
+        }, 
+        "intermediateObjects": {
+            "data_type": "boolean", 
+            "description": "List only intermediate dag nodes.", 
+            "short": "io"
+        }, 
+        "invisible": {
+            "data_type": "boolean", 
+            "description": "List only invisible dag nodes.", 
+            "short": "iv"
+        }, 
+        "leaf": {
+            "data_type": "boolean", 
+            "description": "List all leaf nodes in Dag. This flag is a modifier and must be used in conjunction with the -dag flag.", 
+            "short": "lf"
+        }, 
+        "lights": {
+            "data_type": "boolean", 
+            "description": "List light shapes.", 
+            "short": "lt"
+        }, 
+        "live": {
+            "data_type": "boolean", 
+            "description": "List objects that are currently live.", 
+            "short": "lv"
+        }, 
+        "lockedNodes": {
+            "data_type": "boolean", 
+            "description": "Returns locked nodes, which cannot be deleted or renamed. However, their status may change.", 
+            "short": "ln"
+        }, 
+        "long": {
+            "data_type": "boolean", 
+            "description": "Return full path names for Dag objects. By default the shortest unique name is returned.", 
+            "short": "l"
+        }, 
+        "materials": {
+            "data_type": "boolean", 
+            "description": "List materials or shading groups.", 
+            "short": "mat"
+        }, 
+        "modified": {
+            "data_type": "boolean", 
+            "description": "When this flag is set, only nodes modified since the last save will be returned.", 
+            "short": "mod"
+        }, 
+        "noIntermediate": {
+            "data_type": "boolean", 
+            "description": "List only non intermediate dag nodes.", 
+            "short": "ni"
+        }, 
+        "nodeTypes": {
+            "data_type": "boolean", 
+            "description": "Lists all registered node types.", 
+            "short": "nt"
+        }, 
+        "objectsOnly": {
+            "data_type": "boolean", 
+            "description": "When this flag is set only object names will be returned and components/attributes will be ignored.", 
+            "short": "o"
+        }, 
+        "orderedSelection": {
+            "data_type": "boolean", 
+            "description": "List objects and components that are currently selected in their order of selection.  This flag depends on the value of the -tso/trackSelectionOrder flag of the selectPref command.  If that flag is not enabled than this flag will return the same thing as the -sl/selection flag would.", 
+            "short": "os"
+        }, 
+        "partitions": {
+            "data_type": "boolean", 
+            "description": "List partitions.", 
+            "short": "pr"
+        }, 
+        "persistentNodes": {
+            "data_type": "boolean", 
+            "description": "Returns persistent nodes, which are nodes that stay in the Maya session after a file > new. These are a special class of default nodes that do not get reset on file > new. Ex: itemFilter and selectionListOperator nodes.", 
+            "short": "pn"
+        }, 
+        "planes": {
+            "data_type": "boolean", 
+            "description": "List construction plane shapes.", 
+            "short": "pl"
+        }, 
+        "preSelectHilite": {
+            "data_type": "boolean", 
+            "description": "List components that are currently hilited for pre-selection.", 
+            "short": "psh"
+        }, 
+        "readOnly": {
+            "data_type": "boolean", 
+            "description": "Returns referenced nodes. Referenced nodes are read only. NOTE: Obsolete. Please use \"-referencedNodes\".", 
+            "short": "ro"
+        }, 
+        "recursive": {
+            "data_type": "boolean", 
+            "description": "When set to true, this command will look for name matches in all namespaces. When set to false, this command will only look for matches in namespaces that are requested (e.g. by specifying a name containing the ':'... \"ns1:pSphere1\").", 
+            "short": "r"
+        }, 
+        "referencedNodes": {
+            "data_type": "boolean", 
+            "description": "Returns referenced nodes. Referenced nodes are read only.", 
+            "short": "rn"
+        }, 
+        "references": {
+            "data_type": "boolean", 
+            "description": "List references associated with files. Excludes special reference nodes such as the sharedReferenceNode and unknown reference nodes.", 
+            "short": "rf"
+        }, 
+        "renderGlobals": {
+            "data_type": "boolean", 
+            "description": "List render globals.", 
+            "short": "rg"
+        }, 
+        "renderQualities": {
+            "data_type": "boolean", 
+            "description": "List named render qualities.", 
+            "short": "rq"
+        }, 
+        "renderResolutions": {
+            "data_type": "boolean", 
+            "description": "List render resolutions.", 
+            "short": "rr"
+        }, 
+        "renderSetups": {
+            "data_type": "boolean", 
+            "description": "Alias for -renderGlobals.", 
+            "short": "rs"
+        }, 
+        "selection": {
+            "data_type": "boolean", 
+            "description": "List objects that are currently selected.", 
+            "short": "sl"
+        }, 
+        "sets": {
+            "data_type": "boolean", 
+            "description": "List sets.", 
+            "short": "set"
+        }, 
+        "shapes": {
+            "data_type": "boolean", 
+            "description": "List shape objects.", 
+            "short": "s"
+        }, 
+        "shortNames": {
+            "data_type": "boolean", 
+            "description": "Return short attribute names. By default long attribute names are returned.", 
+            "short": "sn"
+        }, 
+        "showNamespace": {
+            "data_type": "boolean", 
+            "description": "Show the namespace of each object after the object name.  This flag cannot be used in conjunction with the showType flag.", 
+            "short": "sns"
+        }, 
+        "showType": {
+            "data_type": "boolean", 
+            "description": "List the type of each object after its name.", 
+            "short": "st"
+        }, 
+        "tail": {
+            "data_type": "int", 
+            "description": "This flag specifies the maximum number of elements to be returned from the end of the list of items. Note: each    type flag will return at most this many items so if multiple type flags are specified then the number of items returned can be greater than this amount", 
+            "short": "tl"
+        }, 
+        "templated": {
+            "data_type": "boolean", 
+            "description": "List only templated dag nodes.", 
+            "short": "tm"
+        }, 
+        "textures": {
+            "data_type": "boolean", 
+            "description": "List textures.", 
+            "short": "tex"
+        }, 
+        "transforms": {
+            "data_type": "boolean", 
+            "description": "List transform objects.", 
+            "short": "tr"
+        }, 
+        "type": {
+            "data_type": "string", 
+            "description": "List all objects of the specified type. This flag can appear multiple times on the command line. Note: the type passed to this flag is the same type name returned from the showType flag. Note: some selection items in Maya do not have a specific object/data type associated with them and will return \"untyped\" when listed with this flag.  This flag cannot be used in conjunction with the exactType or excludeType flag.", 
+            "short": "typ"
+        }, 
+        "undeletable": {
+            "data_type": "boolean", 
+            "description": "Returns nodes that cannot be deleted (which includes locked nodes). These nodes also cannot be renamed.", 
+            "short": "ud"
+        }, 
+        "untemplated": {
+            "data_type": "boolean", 
+            "description": "List only un-templated dag nodes.", 
+            "short": "ut"
+        }, 
+        "uuid": {
+            "data_type": "boolean", 
+            "description": "Return node UUIDs instead of names. Note that there are no \"UUID paths\" - combining this flag with e.g. the -long flag will not result in a path formed of node UUIDs.", 
+            "short": "uid"
+        }, 
+        "visible": {
+            "data_type": "boolean", 
+            "description": "List only visible dag nodes.", 
+            "short": "v"
+        }
+    }, 
+    "http://help.autodesk.com/cloudhelp/2017/ENU/Maya-Tech-Docs/CommandsPython/setKeyframe.html": {
+        "animLayer": {
+            "data_type": "string", 
+            "description": "Specifies that the new key should be placed in the specified animation layer. Note that if the objects being keyframed are not already part of the layer, this flag will be ignored.", 
+            "short": "al"
+        }, 
+        "animated": {
+            "data_type": "boolean", 
+            "description": "Add the keyframe only to the attribute(s) that have already a keyframe on. Default: false", 
+            "short": "an"
+        }, 
+        "attribute": {
+            "data_type": "string", 
+            "description": "Attribute name to set keyframes on.", 
+            "short": "at"
+        }, 
+        "breakdown": {
+            "data_type": "boolean", 
+            "description": "Sets the breakdown state for the key.  Default is false", 
+            "short": "bd"
+        }, 
+        "clip": {
+            "data_type": "string", 
+            "description": "Specifies that the new key should be placed in the specified clip. Note that if the objects being keyframed are not already part of the clip, this flag will be ignored.", 
+            "short": "c"
+        }, 
+        "controlPoints": {
+            "data_type": "boolean", 
+            "description": "Explicitly specify whether or not to include the control points of a shape (see \"-s\" flag) in the list of attributes. Default: false.", 
+            "short": "cp"
+        }, 
+        "dirtyDG": {
+            "data_type": "boolean", 
+            "description": "Allow dirty messages to be sent out when a keyframe is set.", 
+            "short": "dd"
+        }, 
+        "float": {
+            "data_type": "float", 
+            "description": "Float time at which to set a keyframe on float-based animation curves.", 
+            "short": "f"
+        }, 
+        "hierarchy": {
+            "data_type": "string", 
+            "description": "Controls the objects this command acts on, relative to the specified (or active) target objects. Valid values are \"above,\" \"below,\" \"both,\" and \"none.\" Default is \"hierarchy -query\"", 
+            "short": "hi"
+        }, 
+        "identity": {
+            "data_type": "boolean", 
+            "description": "Sets an identity key on an animation layer.  An identity key is one that nullifies the effect of the anim layer.  This flag has effect only when the attribute being keyed is being driven by animation layers.", 
+            "short": "id"
+        }, 
+        "inTangentType": {
+            "data_type": "string", 
+            "description": "The in tangent type for keyframes set by this command. Valid values are: \"auto\", clamped\", \"fast\", \"flat\", \"linear\", \"plateau\", \"slow\", \"spline\", and \"stepnext\" Default is \"keyTangent -q -g -inTangentType\"", 
+            "short": "itt"
+        }, 
+        "insert": {
+            "data_type": "boolean", 
+            "description": "Insert keys at the given time(s) and preserve the shape of the animation curve(s). Note: the tangent type on inserted keys will be fixed so that the curve shape can be preserved.", 
+            "short": "i"
+        }, 
+        "insertBlend": {
+            "data_type": "boolean", 
+            "description": "If true, a pairBlend node will be inserted for channels that have nodes other than animCurves driving them, so that such channels can have blended animation. If false, these channels will not have keys inserted. If the flag is not specified, the blend will be inserted based on the global preference for blending animation.", 
+            "short": "ib"
+        }, 
+        "minimizeRotation": {
+            "data_type": "boolean", 
+            "description": "For rotations, ensures that the key that is set is a minimum distance away from the previous key.  Default is false", 
+            "short": "mr"
+        }, 
+        "noResolve": {
+            "data_type": "boolean", 
+            "description": "When used with the -value flag, causes the specified value to be set directly onto the animation curve, without attempting to resolve the value across animation layers.", 
+            "short": "nr"
+        }, 
+        "outTangentType": {
+            "data_type": "string", 
+            "description": "The out tangent type for keyframes set by this command. Valid values are: \"auto\", \"clamped\", \"fast\", \"flat\", \"linear\", \"plateau\", \"slow\", \"spline\", \"step\", and \"stepnext\". Default is \"keyTangent -q -g -outTangentType\"", 
+            "short": "ott"
+        }, 
+        "respectKeyable": {
+            "data_type": "boolean", 
+            "description": "When used with the -attribute flag, prevents the keying of the non keyable attributes.", 
+            "short": "rk"
+        }, 
+        "shape": {
+            "data_type": "boolean", 
+            "description": "Consider attributes of shapes below transforms as well, except \"controlPoints\".  Default: true", 
+            "short": "s"
+        }, 
+        "time": {
+            "data_type": "time", 
+            "description": "Time at which to set a keyframe on time-based animation curves.", 
+            "short": "t"
+        }, 
+        "useCurrentLockedWeights": {
+            "data_type": "boolean", 
+            "description": "If we are setting a key over an existing key, use that key tangent's locked weight value for the new locked weight value.  Default is false", 
+            "short": "lw"
+        }, 
+        "value": {
+            "data_type": "float", 
+            "description": "Value at which to set the keyframe. Using the value flag will not cause the keyed attribute to change to the specified value until the scene re-evaluates. Therefore, if you want the attribute to update to the new value immediately, use the setAttr command in addition to setting the key.", 
+            "short": "v"
+        }
+    }
+}

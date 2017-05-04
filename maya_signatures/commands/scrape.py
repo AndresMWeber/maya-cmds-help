@@ -1,10 +1,12 @@
 # maya_signatures/commands/scrape.py
 """The maya online help command signature scraping command."""
 
+from six import iteritems
 import requests
 import tempfile
 import json
 import shutil
+import os
 from .base import Base
 from .cache import KeyMemoized
 from bs4 import BeautifulSoup
@@ -17,30 +19,60 @@ class Scrape(Base):
     CACHE_FILE = '%s.json' % __name__.split('.')[-1]
     FUNCTION_SET = {}
 
-    def run(self):
+    def __init__(self, *args, **kwargs):
+        super(Scrape, self).__init__(*args, **kwargs)
+        self.depth = self.kwargs.get('--depth', 1)
+        self.maya_version = self.kwargs.get('--mayaversion', ['2017'])[0]
         self.command_signatures = {}
+        self.run()
+
+    @property
+    def stored_commands(self):
+        return list(self.command_signatures)
+
+    def get_command_flags(self, command):
+        return zip(list(self.command_signatures[command]),
+                   [self.command_signatures[command][flag]['short'] for flag in self.command_signatures[command]])
+
+    def run(self):
         self.read_tempfile()
         self.store_commands()
         self.write_tempfile()
         return self.command_signatures
 
     def build_url(self, command):
-        return self.URL_BUILDER.format(BASEURL=self.BASEURL.format(MAYAVERSION=self.options.get('--mayaversion')[0]),
+        return self.URL_BUILDER.format(BASEURL=self.BASEURL.format(MAYAVERSION=self.maya_version),
                                        COMMAND=command,
                                        EXT=self.EXTENSION)
 
+    def build_command_stub(self, command, shortname=False, combined=False):
+        lut = {'boolean': 'bool', 'string': 'str', 'int': 'int'}
+        kwargs = []
+        shortname = False if combined else shortname
+
+        for k, v in iteritems(self.command_signatures[command]):
+            flag = k if not shortname else v['short']
+            if combined:
+                flag += '(%s)' % v['short']
+            kwargs.append('{FLAG}={TYPE}'.format(FLAG=flag, TYPE=lut[v['data_type']]))
+        signature = ', '.join(kwargs)
+        return 'def {CMD}(*args, {SIG}):\n\tpass'.format(CMD=command, SIG=signature)
+
     def store_commands(self):
-        for maya_command in self.options['MAYA_CMDS']:
+        for maya_command in self.kwargs.get('MAYA_CMDS', []):
             url = self.build_url(maya_command)
             self.command_signatures[maya_command] = self.scrape_command(self, url)
 
+    def reset_cache(self):
+        open(self.CACHE_FILE, 'w').close()
+
     def write_tempfile(self):
         f = tempfile.NamedTemporaryFile(mode='w+t', delete=False)
-        f.write(json.dumps(self.scrape_command.cache, ensure_ascii=False))
+        f.write(json.dumps(self.scrape_command.cache, ensure_ascii=False, indent=4, sort_keys=True))
         file_name = f.name
         f.close()
         shutil.copy(file_name, self.CACHE_FILE)
-        print("wrote out tmp file %s" % self.CACHE_FILE)
+        print("wrote out tmp file %s" % os.path.join(os.getcwd(), self.CACHE_FILE))
 
     def read_tempfile(self):
         with open(self.CACHE_FILE, ) as data_file:
