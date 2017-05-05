@@ -1,7 +1,6 @@
 Maya Command Signature Scraper: For people who just really want to check their maya.cmds signatures
 ###################################################################################################
-.. _Documentation(ReadTheDocs): http://mayasig-cli.readthedocs.io/en/latest/#module-maya_signatures.commands.scrape
-
+`Online Documentation (ReadTheDocs) <http://mayasig-cli.readthedocs.io/en/latest/#module-maya_signatures.commands.scrape>`_
 
 .. contents::
 
