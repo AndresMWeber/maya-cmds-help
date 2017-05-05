@@ -1,10 +1,6 @@
 Maya Command Signature Scraper: For people who just really want to check their maya.cmds signatures
 ###################################################################################################
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
 .. contents::
 
 .. section-numbering::

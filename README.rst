@@ -1,11 +1,5 @@
 Maya Command Signature Scraper: For people who just really want to check their maya.cmds signatures
 ###################################################################################################
-The full documentation can be found here:
-[Documentation on ReadTheDocs](http://mayasig-cli.readthedocs.io/en/latest/?)
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
 
 .. contents::
 
@@ -114,7 +108,19 @@ In order to access full functionality from the scraper class you can access a pa
     maya_signatures.scraper.get_command_flags('group')
     #  Result: [('name', 'n'), ('parent', 'p'), ('relative', 'r'), ('useAsGroup', 'uag'), ('world', 'w'), ('empty', 'em'), ('absolute', 'a')]
 
+Class Documentation
+===================
+.. automodule:: maya_signatures.commands.scrape
+    :members:
+    :undoc-members:
+    :inherited-members:
+    :show-inheritance:
+
 Version Support
 ===============
 This package supports the Maya 2015, 2016 and 2017 help docs so far so please be aware.
 I might back port a couple versions of the maya online help, but this is totally dependent on time.
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
