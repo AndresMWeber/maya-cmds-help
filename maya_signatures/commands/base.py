@@ -1,5 +1,5 @@
 # maya_signatures/commands/base.py
-"""The base command."""
+"""The base structure for a CLI command."""
 
 
 class Base(object):
@@ -7,12 +7,13 @@ class Base(object):
 
     def __init__(self, *args, **kwargs):
         print 'storing args ', args, ' storing kwargs ', kwargs
-        if isinstance(args[0], dict):
-            kwargs = args[0]
-            args = args[1:]
-        else:
-            maya_commands = kwargs.get('MAYA_CMDS', list(args))
-            kwargs['MAYA_CMDS'] = maya_commands
+        if args:
+            if isinstance(args[0], dict):
+                kwargs = args[0]
+                args = args[1:]
+            else:
+                maya_commands = kwargs.get('MAYA_CMDS', list(args))
+                kwargs['MAYA_CMDS'] = maya_commands
         self.args = args
         self.kwargs = kwargs
 
