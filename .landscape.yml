@@ -1,0 +1,25 @@
+doc-warnings: true
+test-warnings: false
+strictness: veryhigh
+max-line-length: 120
+autodetect: true
+pep8:
+  full: true
+requirements:
+  - requirements.txt
+ignore-paths:
+  - docs
+  - build
+  - dist
+  - .cache
+  - .tox
+  - .idea
+  - .coverage
+  - .git
+ignore-patterns:
+  - ^example/doc_.*\.py$
+  - (^|/)docs(/|$)
+  - ^.+.egg-info$
+python-targets:
+  - 2
+  - 3
