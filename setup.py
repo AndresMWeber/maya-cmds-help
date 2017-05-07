@@ -3,7 +3,7 @@ from codecs import open
 from os.path import abspath, dirname, join
 from setuptools import find_packages, setup
 
-__version__ = '0.5.1'
+__version__ = '0.5.2'
 
 with open(join(abspath(dirname(__file__)), 'README.rst'), encoding='utf-8') as file:
     long_description = file.read()
