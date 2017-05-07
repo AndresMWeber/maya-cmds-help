@@ -1,5 +1,5 @@
 """
-mayasig
+mayasig.
 
 Usage:
   mayasig [-m|--mayaversion VERSION] [-d|--depth DEPTH] (MAYA_CMDS ...)
@@ -26,24 +26,23 @@ import docopt
 from pprint import pprint
 import sys
 from inspect import getmembers, isclass
-from . import __version__ as VERSION
 
 
 def main():
     """Main CLI entry point."""
     try:
-        arguments = docopt.docopt(__doc__, version=VERSION)
-    except docopt.DocoptExit as e:
+        arguments = docopt.docopt(__doc__)
+    except docopt.DocoptExit:
         print('invalid operation. %s' % str(sys.argv[1:]))
         raise
 
     has_run = False
-    for k, v in arguments.iteritems():
-        if hasattr(maya_signature_commands, k):
-            module = getattr(maya_signature_commands, k)
+    for command in list(arguments):
+        if hasattr(maya_signature_commands, command):
+            module = getattr(maya_signature_commands, command)
             commands = getmembers(module, isclass)
             command = [command[1] for command in commands if command[0] != 'Base'][0]
-            command = command(arguments)
+            command(arguments)
             has_run = True
 
     if not has_run:

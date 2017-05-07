@@ -14,6 +14,9 @@ from bs4 import BeautifulSoup
 
 
 class Scrape(Base):
+    """ Class responsible for handling Maya help doc command queries and returns function signatures.
+    
+    """
     BASEURL = 'http://help.autodesk.com/cloudhelp/{MAYAVERSION}/ENU/Maya-Tech-Docs/CommandsPython/'
     _EXTENSION = 'html'
     _URL_BUILDER = '{BASEURL}{COMMAND}.{EXT}'
@@ -29,7 +32,7 @@ class Scrape(Base):
 
     @property
     def cache_file(self):
-        """ Provides the cache file path
+        """ Provide the cache file path
         
         - **parameters**, **types**, **return**::
             :return: str
@@ -38,7 +41,7 @@ class Scrape(Base):
 
     @property
     def cached(self):
-        """ Provides the raw cache with urls as the dictionary keys
+        """ Provide the raw cache with urls as the dictionary keys
         
         - **parameters**, **types**, **return**::    
             :return: dict
@@ -47,7 +50,7 @@ class Scrape(Base):
 
     @property
     def stored_commands(self):
-        """ Provides a list of commands that are currently stored.
+        """ Provide a list of commands that are currently stored.
         
         - **parameters**, **types**, **return**::
             :return: list
@@ -55,7 +58,7 @@ class Scrape(Base):
         return list(self.command_signatures)
 
     def run(self):
-        """ CLI interface command runner
+        """ CLI interface command runner.
         
         - **parameters**, **types**, **return**::
             :return: dict, command signatures dictionary sorted the commands as the keys 
@@ -66,24 +69,8 @@ class Scrape(Base):
         self._write_tempfile()
         return self.command_signatures
 
-    @Memoize
-    def _scrape_command(self, maya_command_url):
-        """ Actual worker command which parses the Maya online help docs for the given command URL
-        
-        - **parameters**, **types**, **return**::
-            :return: dict(str:dict(str:str, str:str, str:str), dict with keys of flags and each flag value is a dict
-                     of short name 'short', data type 'data_type' and description 'description'
-        """
-        print('Trying to find command for web page: \n\t%s' % maya_command_url)
-        web_page_data = requests.get(maya_command_url)
-        soup_data = BeautifulSoup(web_page_data.content, 'html.parser')
-
-        raw_flag_table = self._parse_flag_table(soup_data)
-        flags = self._compile_flag_table(raw_flag_table)
-        return flags
-
     def query(self, commands):
-        """ Builds URLs then stores all queried commands within the instance
+        """ Build URLs then stores all queried commands within the instance.
             :param commands: list(str) or str, valid maya command(s)
             :return: None
         """
@@ -94,16 +81,8 @@ class Scrape(Base):
             url = self._build_url(maya_command)
             self.command_signatures[maya_command] = self._scrape_command(url)
 
-    def reset_cache(self):
-        """ Clears the cache file of contents.
-        
-        - **parameters**, **types**, **return**::
-            :return: None
-        """
-        open(self._CACHE_FILE, 'w').close()
-
     def get_command_flags(self, command):
-        """ Returns only the flags for the given command
+        """ Return only the flags for the given command.
         
         - **parameters**, **types**, **return**::
             :param command: str, maya command
@@ -113,7 +92,7 @@ class Scrape(Base):
                    [self.command_signatures[command][flag]['short'] for flag in self.command_signatures[command]])
 
     def build_command_stub(self, command, shortname=False, combined=False):
-        """ Builds a Python stub for the given command.
+        """ Build a Python stub for the given command.
         
         - **parameters**, **types**, **return**::
             :param command: str, valid maya command
@@ -133,6 +112,7 @@ class Scrape(Base):
                }
         kwargs = []
         shortname = False if combined else shortname
+        docstring = ''
 
         for k, v in iteritems(self.command_signatures[command]):
             flag = k if not shortname else v['short']
@@ -143,22 +123,46 @@ class Scrape(Base):
             data_type = v['data_type']
             find_types = findall('([a-z]+)', data_type)
 
-            data_type = ', '.join([lut[ftype]+'()' for ftype in find_types])
+            data_type = ', '.join([lut[ftype] + '()' for ftype in find_types])
             if len(find_types) > 1:
                 data_type = '[{TYPES}]'.format(TYPES=data_type)
 
             flag = '{FLAG}={TYPE}'.format(FLAG=flag, TYPE=data_type)
-
+            docstring += '\n' + v['description']
             kwargs.append(flag)
 
         signature = ', '.join(kwargs)
         command_line = 'def {CMD}({SIG}, *args):'.format(CMD=command, SIG=signature)
-        docstring = '\"\"\"\n\t{DOC}\n\t\"\"\"'.format(DOC=v['description'])
+        docstring = '\"\"\"\n\t{DOC}\n\t\"\"\"'.format(DOC=docstring)
         body = 'pass'
         return '\n\t'.join([command_line, docstring, body])
 
+    def reset_cache(self):
+        """ Clear the cache file of contents.
+        
+        - **parameters**, **types**, **return**::
+            :return: None
+        """
+        open(self._CACHE_FILE, 'w').close()
+
+    @Memoize
+    def _scrape_command(self, maya_command_url):
+        """ Actual worker command which parses the Maya online help docs for the given command URL.
+        
+        - **parameters**, **types**, **return**::
+            :return: dict(str:dict(str:str, str:str, str:str), dict with keys of flags and each flag value is a dict
+                     of short name 'short', data type 'data_type' and description 'description'
+        """
+        print('Trying to find command for web page: \n\t%s' % maya_command_url)
+        web_page_data = requests.get(maya_command_url)
+        soup_data = BeautifulSoup(web_page_data.content, 'html.parser')
+
+        raw_flag_table = self._parse_flag_table(soup_data)
+        flags = self._compile_flag_table(raw_flag_table)
+        return flags
+
     def _read_tempfile(self):
-        """ Attempts to read and store instance data from the cache file
+        """ Attempt to read and store instance data from the cache file.
             :return: None
         """
         try:
@@ -173,7 +177,7 @@ class Scrape(Base):
             print('No preexisting scrape.json detected in folder %s continuing...' % self.cache_file)
 
     def _build_url(self, command):
-        """ Uses class variables to synthesize a URL path to the maya help lib for the given command
+        """ Use class variables to synthesize a URL path to the maya help lib for the given command.
             :param command: str, valid maya command
             :return: str, url to the maya help lib for given command.
         """
@@ -182,7 +186,7 @@ class Scrape(Base):
                                         EXT=self._EXTENSION)
 
     def _write_tempfile(self):
-        """ Writes instance data to the cache file
+        """ Writes instance data to the cache file.
             :return: None
         """
         f = tempfile.NamedTemporaryFile(mode='w+t', delete=False)
@@ -194,18 +198,18 @@ class Scrape(Base):
 
     @classmethod
     def _parse_synopsis(cls, soup_code_object):
-        """ Parses the webpage for the synopsis value
+        """ Parse the webpage for the synopsis value.
             :param soup_code_object: str, return of beautiful soup for maya help doc page
             :return: list(str): list of synopsis values (should be the flags)
         """
         synopses = []
         for child in [child for child in soup_code_object.children]:
-            synopses.append(unicode(child) if not hasattr(child, 'string') else child.string)
+            synopses.append(str(child) if not hasattr(child, 'string') else child.string)
         return synopses
 
     @classmethod
     def _parse_flag_table(cls, soup_code_object):
-        """ Parses (naively) the webpage for the flag table
+        """ Parse (naively) the webpage for the flag table.
             :param soup_code_object: str, return of beautiful soup for maya help doc page
             :return: list(list(str, str, str, str)): list of lists len 4 of:
                         flag name, short name, data type, description
@@ -229,7 +233,7 @@ class Scrape(Base):
 
     @staticmethod
     def _compile_flag_table(flag_data_set):
-        """ Parses Takes the parsed data set from Scrape.parse_flag_table and creates a dictionary
+        """ Take the parsed data set from Scrape.parse_flag_table and creates a dictionary.
             :param flag_data_set: list(list(str, str, str, str)): list of lists len 4 of:
                                     flag name, short name, data type, description
             :return: dict(str:dict(str:str, str:str, str:str), dict with keys of flags and each flag value is a dict
@@ -241,4 +245,3 @@ class Scrape(Base):
             flags[name] = {'short': short, 'data_type': data_type, 'description': description}
 
         return flags
-

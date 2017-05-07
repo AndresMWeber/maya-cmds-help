@@ -3,15 +3,19 @@ from .commands.scrape import Scrape
 
 __all__ = ['commands', 'cli']
 
-cache = None
-scraper = None
+CACHE = None
+SCRAPER = None
 
 
 def scrape(maya_commands):
-    global scraper
-    global cache
-    if scraper is None:
-        scraper = Scrape()
-        cache = scraper.cached
+    """ Generic entry point for ease of use, returns maya_signatures.commands.scrape.Scraper(<input>).query
+    :param maya_commands: Commands to query and return
+    :return: 
+    """
+    global SCRAPER
+    global CACHE
+    if SCRAPER is None:
+        SCRAPER = Scrape()
+        CACHE = SCRAPER.cached
 
-    scraper.query(maya_commands)
+    SCRAPER.query(maya_commands)

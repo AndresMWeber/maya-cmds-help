@@ -67,17 +67,6 @@ class KeyMemoized(object):
             # uncachable -- for instance, passing a list as an argument.
             # Better to not cache than to blow up entirely.
             return self.func(*args)
-        '''
-        print 'wrapper args:'
-        print self, args, kwargs
-        key = self._key(args, kwargs)
-        if key not in self.cache:
-            print('Could not find key %s in cached values...retrieving...' % key)
-            self.cache[key] = self.func(*args, **kwargs)
-        else:
-            print('Retrieving cached value for input %s' % key)
-        return self.cache[key]
-        '''
 
     def _normalize_args(self, args, kwargs):
         spec = inspect.getargs(self.func.__code__).args[1:]
