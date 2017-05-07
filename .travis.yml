@@ -7,7 +7,7 @@ install:
   - pip install tox
   - pip install tox-travis
   - pip install .
-  - pip install python-coveralls
+  - pip install coveralls
 script:
   - tox
 after_sucess:
