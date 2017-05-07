@@ -4,13 +4,14 @@ python:
 - '2.7'
 before_install: 
 install:
-- pip install tox
-- pip install tox-travis
-- pip install .
-- pip install coveralls
+  - pip install tox
+  - pip install tox-travis
+  - pip install .
+  - pip install python-coveralls
 script:
-- tox
-after_sucess: coveralls
+  - tox
+after_sucess:
+  - coveralls
 
 deploy:
   provider: pypi
