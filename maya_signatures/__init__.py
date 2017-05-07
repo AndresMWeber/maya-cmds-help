@@ -2,7 +2,6 @@ from . import commands
 from .commands.scrape import Scrape
 
 __all__ = ['commands', 'cli']
-__version__ = '0.1.0'
 
 cache = None
 scraper = None

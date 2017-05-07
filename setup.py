@@ -1,31 +1,12 @@
 """Packaging settings."""
 from codecs import open
 from os.path import abspath, dirname, join
-from subprocess import call
-from setuptools import Command, find_packages, setup
-__version__ = '0.2.0'
+from setuptools import find_packages, setup
 
-this_dir = abspath(dirname(__file__))
-with open(join(this_dir, 'README.rst'), encoding='utf-8') as file:
+__version__ = '0.4.0'
+
+with open(join(abspath(dirname(__file__)), 'README.rst'), encoding='utf-8') as file:
     long_description = file.read()
-
-
-class RunTests(Command):
-    """Run all tests."""
-    description = 'run tests'
-    user_options = []
-
-    def initialize_options(self):
-        pass
-
-    def finalize_options(self):
-        pass
-
-    def run(self):
-        """Run all tests!"""
-        errno = call(['py.test', '--cov=skele', '--cov-report=term-missing'])
-        raise SystemExit(errno)
-
 
 setup(
     name='Maya Signature Scraper',
@@ -48,7 +29,7 @@ setup(
     packages=find_packages(exclude=['docs', 'tests*']),
     install_requires=['redis', 'bs4', 'requests', 'six'],
     extras_require={
-        'test': ['coverage', 'nose', 'tox', 'virtualenv', 'travis'],
+        'test': ['coverage', 'nose', 'tox', 'virtualenv', 'travis', 'python-coveralls'],
         'dev': ['twine', 'virtualenv', 'Sphinx', 'docutils', 'docopt']
     },
     entry_points={
@@ -56,5 +37,5 @@ setup(
             'mayasig=maya_signatures.cli:main',
         ],
     },
-    cmdclass={'test': RunTests},
+    cmdclass={'test': 'tox'},
 )
