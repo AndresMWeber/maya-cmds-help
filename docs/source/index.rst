@@ -1,5 +1,19 @@
 Maya Command Signature Scraper: For people who just really want to check their maya.cmds signatures
 ###################################################################################################
+`Online Documentation (ReadTheDocs) <http://mayasig-cli.readthedocs.io/en/latest/#module-maya_signatures.commands.scrape>`_
+
+.. image:: https://badge.fury.io/py/Maya-Signature-Scraper.svg
+    :target: https://badge.fury.io/py/Maya-Signature-Scraper
+
+.. image:: https://travis-ci.org/AndresMWeber/mayasig_cli.svg?branch=master
+    :target: https://travis-ci.org/AndresMWeber/mayasig_cli
+
+.. image:: https://coveralls.io/repos/github/AndresMWeber/mayasig_cli/badge.svg?branch=master
+    :target: https://coveralls.io/github/AndresMWeber/mayasig_cli?branch=master
+
+.. image:: https://landscape.io/github/AndresMWeber/mayasig_cli/master/landscape.svg?style=flat
+    :target: https://landscape.io/github/AndresMWeber/mayasig_cli/master
+    :alt: Code Health
 
 .. contents::
 
@@ -72,40 +86,40 @@ Feel free to access from the package instead via the two package-level convenien
 
 .. code-block:: python
 
-    maya_signatures.cache
-    maya_signatures.scrape
+    maya_signatures.CACHE
+    maya_signatures.query
 
 In order to access full functionality from the scraper class you can access a package level instance of maya_signatures.commands.scrape.Scraper using:
 
 .. code-block:: python
 
-    maya_signatures.scraper
+    maya_signatures.SCRAPER
 
 
 .. code-block:: python
 
     import maya_signatures
-    maya_signatures.scrape('ls')
+    maya_signatures.query('ls')
     # Result:
     #   storing args  ('ls',)  storing kwargs  {}
     #   Successfully loaded json data, loading into cache...
     #   Retrieving cached value for input http://help.autodesk.com/cloudhelp/2017/ENU/Maya-Tech-Docs/CommandsPython/ls.html
     #   wrote out tmp file C:\Users\andre\dev\maya_signature_builder\scrape.json
 
-    maya_signatures.scraper.build_command_stub('ls')
+    maya_signatures.SCRAPER.build_command_stub('ls')
     #  Result: def ls(*args, textures=bool, selection=bool, defaultNodes=bool, templated=bool, visible=bool, references=bool, flatten=bool, nodeTypes=bool, persistentNodes=bool, intermediateObjects=bool, long=bool, leaf=bool, recursive=bool, objectsOnly=bool, lockedNodes=bool, cameras=bool, tail=int, absoluteName=bool, lights=bool, live=bool, renderSetups=bool, containerType=str, preSelectHilite=bool, type=str, containers=bool, shortNames=bool, renderResolutions=bool, head=int, showType=bool, dependencyNodes=bool, orderedSelection=bool, renderQualities=bool, readOnly=bool, referencedNodes=bool, showNamespace=bool, invisible=bool, hilite=bool, untemplated=bool, partitions=bool, ghost=bool, uuid=bool, sets=bool, geometry=bool, assemblies=bool, noIntermediate=bool, modified=bool, allPaths=bool, shapes=bool, materials=bool, excludeType=str, planes=bool, exactType=str, renderGlobals=bool, undeletable=bool, dagObjects=bool, transforms=bool):
     #              pass
 
 .. code-block:: python
 
-    maya_signatures.scrape('group')
+    maya_signatures.query('group')
     #  Result: storing args  ('group',)  storing kwargs  {}
     #  Successfully loaded json data, loading into cache...
     #  Could not find key http://help.autodesk.com/cloudhelp/2017/ENU/Maya-Tech-Docs/CommandsPython/group.html in cached values...retrieving...
     #  Trying to find command for web page:
     #          http://help.autodesk.com/cloudhelp/2017/ENU/Maya-Tech-Docs/CommandsPython/group.html
     #  wrote out tmp file C:\Users\andre\dev\maya_signature_builder\scrape.json
-    maya_signatures.scraper.get_command_flags('group')
+    maya_signatures.SCRAPER.get_command_flags('group')
     #  Result: [('name', 'n'), ('parent', 'p'), ('relative', 'r'), ('useAsGroup', 'uag'), ('world', 'w'), ('empty', 'em'), ('absolute', 'a')]
 
 Class Documentation
@@ -120,6 +134,7 @@ Version Support
 ===============
 This package supports the Maya 2015, 2016 and 2017 help docs so far so please be aware.
 I might back port a couple versions of the maya online help, but this is totally dependent on time.
+
 
 * :ref:`genindex`
 * :ref:`modindex`
