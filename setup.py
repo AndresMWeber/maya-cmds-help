@@ -49,7 +49,7 @@ setup(
     ],
     keywords='cli',
     packages=find_packages(exclude=['docs', 'tests*']),
-    install_requires=['redis', 'bs4', 'requests'],
+    install_requires=['redis', 'bs4', 'requests', 'six'],
     extras_require={
         'test': ['coverage', 'nose', 'tox', 'virtualenv', 'travis'],
         'dev': ['twine', 'virtualenv', 'Sphinx', 'docutils', 'docopt']

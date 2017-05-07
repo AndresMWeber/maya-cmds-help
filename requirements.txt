@@ -10,3 +10,4 @@ Sphinx==1.5.5
 tox==2.7.0
 twine==1.8.1
 virtualenv==15.1.0
+six
