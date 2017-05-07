@@ -2,6 +2,19 @@ Maya Command Signature Scraper: For people who just really want to check their m
 ###################################################################################################
 `Online Documentation (ReadTheDocs) <http://mayasig-cli.readthedocs.io/en/latest/#module-maya_signatures.commands.scrape>`_
 
+.. image:: https://badge.fury.io/py/Maya-Signature-Scraper.svg
+    :target: https://badge.fury.io/py/Maya-Signature-Scraper
+
+.. image:: https://travis-ci.org/AndresMWeber/mayasig_cli.svg?branch=master
+    :target: https://travis-ci.org/AndresMWeber/mayasig_cli
+
+.. image:: https://coveralls.io/repos/github/AndresMWeber/mayasig_cli/badge.svg?branch=master
+    :target: https://coveralls.io/github/AndresMWeber/mayasig_cli?branch=master
+
+.. image:: https://landscape.io/github/AndresMWeber/mayasig_cli/master/landscape.svg?style=flat
+    :target: https://landscape.io/github/AndresMWeber/mayasig_cli/master
+    :alt: Code Health
+
 .. contents::
 
 .. section-numbering::

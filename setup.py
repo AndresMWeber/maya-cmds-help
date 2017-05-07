@@ -49,9 +49,10 @@ setup(
     ],
     keywords='cli',
     packages=find_packages(exclude=['docs', 'tests*']),
-    install_requires=['redis', 'bs4', 'requests', 'docopt'],
+    install_requires=['redis', 'bs4', 'requests'],
     extras_require={
-        'test': ['coverage', 'pytest', 'pytest-cov'],
+        'test': ['coverage', 'nose', 'tox', 'virtualenv', 'travis'],
+        'dev': ['twine', 'virtualenv', 'Sphinx', 'docutils', 'docopt']
     },
     entry_points={
         'console_scripts': [

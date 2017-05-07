@@ -3,12 +3,13 @@
 
 from six import iteritems
 import requests
+from re import findall
 import tempfile
 import json
 import shutil
 import os
 from .base import Base
-from .cache import KeyMemoized
+from .cache import Memoize
 from bs4 import BeautifulSoup
 
 
@@ -17,6 +18,7 @@ class Scrape(Base):
     _EXTENSION = 'html'
     _URL_BUILDER = '{BASEURL}{COMMAND}.{EXT}'
     _CACHE_FILE = '%s.json' % __name__.split('.')[-1]
+    __cache = {}
 
     def __init__(self, *args, **kwargs):
         super(Scrape, self).__init__(*args, **kwargs)
@@ -41,7 +43,7 @@ class Scrape(Base):
         - **parameters**, **types**, **return**::    
             :return: dict
         """
-        return self.scrape_command.cache
+        return self.__cache
 
     @property
     def stored_commands(self):
@@ -58,14 +60,14 @@ class Scrape(Base):
         - **parameters**, **types**, **return**::
             :return: dict, command signatures dictionary sorted the commands as the keys 
         """
-        commands = self.kwargs.get('MAYA_CMDS', [])
         self._read_tempfile()
-        self._store_commands(commands)
+        for command in self.kwargs.get('MAYA_CMDS', []):
+            self.query(command)
         self._write_tempfile()
         return self.command_signatures
 
-    @KeyMemoized
-    def scrape_command(self, maya_command_url):
+    @Memoize
+    def _scrape_command(self, maya_command_url):
         """ Actual worker command which parses the Maya online help docs for the given command URL
         
         - **parameters**, **types**, **return**::
@@ -79,6 +81,18 @@ class Scrape(Base):
         raw_flag_table = self._parse_flag_table(soup_data)
         flags = self._compile_flag_table(raw_flag_table)
         return flags
+
+    def query(self, commands):
+        """ Builds URLs then stores all queried commands within the instance
+            :param commands: list(str) or str, valid maya command(s)
+            :return: None
+        """
+        if isinstance(commands, str):
+            commands = [commands]
+
+        for maya_command in commands:
+            url = self._build_url(maya_command)
+            self.command_signatures[maya_command] = self._scrape_command(url)
 
     def reset_cache(self):
         """ Clears the cache file of contents.
@@ -107,17 +121,41 @@ class Scrape(Base):
             :param combined: bool, whether we use both short name and long name of flags (will invalidate stub...)
             :return: str, Python formatted function stub for the given command
         """
-        lut = {'boolean': 'bool', 'string': 'str', 'int': 'int'}
+        lut = {'boolean': 'bool',
+               'string': 'str',
+               'int': 'int',
+               'timerange': 'int',
+               'floatrange': 'float',
+               'uint': 'int',
+               'angle': 'float',
+               'linear': 'float',
+               'float': 'float',
+               }
         kwargs = []
         shortname = False if combined else shortname
 
         for k, v in iteritems(self.command_signatures[command]):
             flag = k if not shortname else v['short']
+
             if combined:
                 flag += '(%s)' % v['short']
-            kwargs.append('{FLAG}={TYPE}'.format(FLAG=flag, TYPE=lut[v['data_type']]))
+
+            data_type = v['data_type']
+            find_types = findall('([a-z]+)', data_type)
+
+            data_type = ', '.join([lut[ftype]+'()' for ftype in find_types])
+            if len(find_types) > 1:
+                data_type = '[{TYPES}]'.format(TYPES=data_type)
+
+            flag = '{FLAG}={TYPE}'.format(FLAG=flag, TYPE=data_type)
+
+            kwargs.append(flag)
+
         signature = ', '.join(kwargs)
-        return 'def {CMD}(*args, {SIG}):\n\tpass'.format(CMD=command, SIG=signature)
+        command_line = 'def {CMD}({SIG}, *args):'.format(CMD=command, SIG=signature)
+        docstring = '\"\"\"\n\t{DOC}\n\t\"\"\"'.format(DOC=v['description'])
+        body = 'pass'
+        return '\n\t'.join([command_line, docstring, body])
 
     def _read_tempfile(self):
         """ Attempts to read and store instance data from the cache file
@@ -130,7 +168,7 @@ class Scrape(Base):
                 except ValueError:
                     data = {}
             print('Successfully loaded json data, loading into cache...')
-            self.scrape_command.cache = data
+            self.__cache = data
         except IOError:
             print('No preexisting scrape.json detected in folder %s continuing...' % self.cache_file)
 
@@ -143,24 +181,12 @@ class Scrape(Base):
                                         COMMAND=command,
                                         EXT=self._EXTENSION)
 
-    def _store_commands(self, commands):
-        """ Builds URLs then stores all queried commands within the instance
-            :param commands: list(str) or str, valid maya command(s)
-            :return: None
-        """
-        if isinstance(commands, (str, unicode)):
-            commands = [commands]
-
-        for maya_command in commands:
-            url = self._build_url(maya_command)
-            self.command_signatures[maya_command] = self.scrape_command(self, url)
-
     def _write_tempfile(self):
         """ Writes instance data to the cache file
             :return: None
         """
         f = tempfile.NamedTemporaryFile(mode='w+t', delete=False)
-        f.write(json.dumps(self.scrape_command.cache, ensure_ascii=False, indent=4, sort_keys=True))
+        f.write(json.dumps(self.__cache, ensure_ascii=False, indent=4, sort_keys=True))
         file_name = f.name
         f.close()
         shutil.copy(file_name, self._CACHE_FILE)
@@ -185,7 +211,7 @@ class Scrape(Base):
                         flag name, short name, data type, description
         """
         signature_table = [table for table in soup_code_object.body.find_all('table')
-                           if 'Long name (short name)' in unicode(table.find_all('tr'))][0]
+                           if 'Long name (short name)' in str(table.find_all('tr'))][0]
 
         data = []
         for table_row in signature_table.find_all('td'):
@@ -215,3 +241,4 @@ class Scrape(Base):
             flags[name] = {'short': short, 'data_type': data_type, 'description': description}
 
         return flags
+

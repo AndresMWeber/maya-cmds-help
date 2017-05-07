@@ -2,8 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d5c7860-4f2e-4c8d-9a55-1bd6e4b60d6d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/test_scrape.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tox.ini" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/maya_signature_builder.iml" afterPath="$PROJECT_DIR$/.idea/maya_signature_builder.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.rst" afterPath="$PROJECT_DIR$/README.rst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/source/index.rst" afterPath="$PROJECT_DIR$/docs/source/index.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/maya_signatures/__init__.py" afterPath="$PROJECT_DIR$/maya_signatures/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/maya_signatures/commands/__init__.py" afterPath="$PROJECT_DIR$/maya_signatures/commands/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/maya_signatures/commands/base.py" afterPath="$PROJECT_DIR$/maya_signatures/commands/base.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/maya_signatures/commands/cache.py" afterPath="$PROJECT_DIR$/maya_signatures/commands/cache.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/maya_signatures/commands/scrape.py" afterPath="$PROJECT_DIR$/maya_signatures/commands/scrape.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,38 +26,195 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="README.rst" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.rst">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="17" column="35" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.rst" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/source/index.rst">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="scrape.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/maya_signatures/commands/scrape.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="207">
+                  <caret line="113" column="0" lean-forward="true" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#611#837#0" expanded="false" />
+                    <element signature="e#887#1074#0" expanded="false" />
+                    <element signature="e#887#1015#1" expanded="false" />
+                    <element signature="e#1120#1308#0" expanded="false" />
+                    <element signature="e#1120#1280#1" expanded="false" />
+                    <element signature="e#1363#1563#0" expanded="false" />
+                    <element signature="e#1363#1518#1" expanded="false" />
+                    <element signature="e#1592#1974#0" expanded="false" />
+                    <element signature="e#1592#1785#1" expanded="false" />
+                    <element signature="e#2046#2765#0" expanded="false" />
+                    <element signature="e#2046#2420#1" expanded="false" />
+                    <element signature="e#2806#3218#0" expanded="false" />
+                    <element signature="e#2806#2981#1" expanded="false" />
+                    <element signature="e#3105#3218#0" expanded="false" />
+                    <element signature="e#3255#3434#0" expanded="false" />
+                    <element signature="e#3255#3390#1" expanded="false" />
+                    <element signature="e#3486#3930#0" expanded="false" />
+                    <element signature="e#3486#3756#1" expanded="false" />
+                    <element signature="e#4016#5711#0" expanded="false" />
+                    <element signature="e#4016#4473#1" expanded="false" />
+                    <element signature="e#4488#4788#0" expanded="false" />
+                    <element signature="e#4940#5428#0" expanded="false" />
+                    <element signature="e#5751#6288#0" expanded="false" />
+                    <element signature="e#5751#5853#1" expanded="false" />
+                    <element signature="e#5879#6162#0" expanded="false" />
+                    <element signature="e#5939#6056#0" expanded="false" />
+                    <element signature="e#6333#6777#0" expanded="false" />
+                    <element signature="e#6333#6559#1" expanded="false" />
+                    <element signature="e#6818#7203#0" expanded="false" />
+                    <element signature="e#6818#6898#1" expanded="false" />
+                    <element signature="e#7278#7712#0" expanded="false" />
+                    <element signature="e#7278#7503#1" expanded="false" />
+                    <element signature="e#7789#8979#0" expanded="false" />
+                    <element signature="e#7789#8089#1" expanded="false" />
+                    <element signature="e#8116#8260#0" expanded="false" />
+                    <element signature="e#8352#8915#0" expanded="false" />
+                    <element signature="e#8509#8915#0" expanded="false" />
+                    <element signature="e#8765#8850#0" expanded="false" />
+                    <element signature="e#9051#9774#0" expanded="false" />
+                    <element signature="e#9051#9538#1" expanded="false" />
+                    <element signature="e#9610#9752#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/maya_signatures/__init__.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="64">
+                  <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+                  <folding>
+                    <element signature="e#0#22#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="tox.ini" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/tox.ini">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="144">
+                  <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="README.rst" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/README.rst">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="144">
+                  <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="setup.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/setup.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="752">
+                  <caret line="53" column="66" lean-forward="false" selection-start-line="53" selection-start-column="66" selection-end-line="53" selection-end-column="66" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="travis.yml" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/travis.yml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="208">
+                  <caret line="13" column="25" lean-forward="false" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/maya_signatures/commands/base.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="176">
+                  <caret line="11" column="33" lean-forward="false" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="cache.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/maya_signatures/commands/cache.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="640">
+                  <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#0#14#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="test_scrape.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/tests/test_scrape.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="96">
+                  <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+                  <folding>
+                    <element signature="e#116#209#0" expanded="false" />
+                    <element signature="e#141#209#0" expanded="false" />
+                    <element signature="e#244#2145#0" expanded="false" />
+                    <element signature="e#282#297#0" expanded="false" />
+                    <element signature="e#354#442#0" expanded="false" />
+                    <element signature="e#488#576#0" expanded="false" />
+                    <element signature="e#634#758#0" expanded="false" />
+                    <element signature="e#823#933#0" expanded="false" />
+                    <element signature="e#975#1021#0" expanded="false" />
+                    <element signature="e#1065#1122#0" expanded="false" />
+                    <element signature="e#1164#1272#0" expanded="false" />
+                    <element signature="e#1320#1395#0" expanded="false" />
+                    <element signature="e#1444#1616#0" expanded="false" />
+                    <element signature="e#1675#1863#0" expanded="false" />
+                    <element signature="e#1921#2012#0" expanded="false" />
+                    <element signature="e#2053#2145#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/requirements.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="80">
+                  <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>options</find>
-      <find>print</find>
       <find>pprint</find>
       <find>MAYA</find>
       <find>dumps</find>
       <find>_FUNCTION</find>
       <find>html</find>
+      <find>print</find>
+      <find>isinstance</find>
+      <find>tox</find>
+      <find>nose</find>
+      <find>partial</find>
+      <find>.cache</find>
+      <find>eval</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -59,15 +228,19 @@
         <option value="$PROJECT_DIR$/setup.cfg" />
         <option value="$PROJECT_DIR$/maya_signatures/commands/main.py" />
         <option value="$PROJECT_DIR$/maya_signatures/commands/__init__.py" />
-        <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/maya_signatures/cli.py" />
         <option value="$PROJECT_DIR$/maya_signatures/__init__.py" />
-        <option value="$PROJECT_DIR$/maya_signatures/commands/base.py" />
-        <option value="$PROJECT_DIR$/maya_signatures/commands/cache.py" />
-        <option value="$PROJECT_DIR$/maya_signatures/commands/scrape.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/docs/source/index.rst" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/maya_signatures/commands/cache.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/travis.yml" />
+        <option value="$PROJECT_DIR$/maya_signatures/commands/base.py" />
+        <option value="$PROJECT_DIR$/tox.ini" />
         <option value="$PROJECT_DIR$/README.rst" />
+        <option value="$PROJECT_DIR$/maya_signatures/commands/scrape.py" />
+        <option value="$PROJECT_DIR$/tests/test_scrape.py" />
       </list>
     </option>
   </component>
@@ -156,56 +329,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="maya_signature_builder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="maya_signature_builder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="docs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="maya_signature_builder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="maya_signature_builder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="docs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="maya_signature_builder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="maya_signature_builder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="docs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -214,6 +337,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$USER_HOME$/Envs/maya_signature_builder/Scripts/python.exe" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/tests/test_scrape.py" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -235,7 +360,19 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Tox.Tox">
+    <configuration default="false" name="Tox" type="Tox" factoryName="Tox" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="maya_signature_builder" />
+      <method />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -317,6 +454,14 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Tox.Tox" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Tox.Tox" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -331,6 +476,38 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="Tox - 2017.05.07 at 00h 51m 40s.xml">
+      <configuration name="Tox" configurationId="Tox" />
+    </history-entry>
+    <history-entry file="Tox - 2017.05.07 at 00h 52m 58s.xml">
+      <configuration name="Tox" configurationId="Tox" />
+    </history-entry>
+    <history-entry file="Tox - 2017.05.07 at 00h 55m 08s.xml">
+      <configuration name="Tox" configurationId="Tox" />
+    </history-entry>
+    <history-entry file="Tox - 2017.05.07 at 01h 01m 43s.xml">
+      <configuration name="Tox" configurationId="Tox" />
+    </history-entry>
+    <history-entry file="Tox - 2017.05.07 at 01h 04m 15s.xml">
+      <configuration name="Tox" configurationId="Tox" />
+    </history-entry>
+    <history-entry file="Tox - 2017.05.07 at 01h 04m 54s.xml">
+      <configuration name="Tox" configurationId="Tox" />
+    </history-entry>
+    <history-entry file="Tox - 2017.05.07 at 01h 05m 57s.xml">
+      <configuration name="Tox" configurationId="Tox" />
+    </history-entry>
+    <history-entry file="Tox - 2017.05.07 at 01h 07m 39s.xml">
+      <configuration name="Tox" configurationId="Tox" />
+    </history-entry>
+    <history-entry file="Tox - 2017.05.07 at 01h 08m 07s.xml">
+      <configuration name="Tox" configurationId="Tox" />
+    </history-entry>
+    <history-entry file="Tox - 2017.05.07 at 01h 09m 32s.xml">
+      <configuration name="Tox" configurationId="Tox" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
@@ -339,8 +516,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Tail" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4539749" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -364,11 +541,319 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/maya_signatures/commands/scrape.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="880">
+          <caret line="92" column="73" lean-forward="false" selection-start-line="92" selection-start-column="73" selection-end-line="92" selection-end-column="73" />
+          <folding>
+            <element signature="e#611#837#0" expanded="false" />
+            <element signature="e#887#1074#0" expanded="false" />
+            <element signature="e#887#1015#1" expanded="false" />
+            <element signature="e#1120#1308#0" expanded="false" />
+            <element signature="e#1120#1280#1" expanded="false" />
+            <element signature="e#1363#1563#0" expanded="false" />
+            <element signature="e#1363#1518#1" expanded="false" />
+            <element signature="e#1592#1974#0" expanded="false" />
+            <element signature="e#1592#1785#1" expanded="false" />
+            <element signature="e#2046#2765#0" expanded="false" />
+            <element signature="e#2046#2420#1" expanded="false" />
+            <element signature="e#2806#3218#0" expanded="false" />
+            <element signature="e#2806#2981#1" expanded="false" />
+            <element signature="e#3105#3218#0" expanded="false" />
+            <element signature="e#3255#3434#0" expanded="false" />
+            <element signature="e#3255#3390#1" expanded="false" />
+            <element signature="e#3486#3930#0" expanded="false" />
+            <element signature="e#3486#3756#1" expanded="false" />
+            <element signature="e#4016#5711#0" expanded="false" />
+            <element signature="e#4016#4473#1" expanded="false" />
+            <element signature="e#4488#4788#0" expanded="false" />
+            <element signature="e#4940#5428#0" expanded="false" />
+            <element signature="e#5751#6288#0" expanded="false" />
+            <element signature="e#5751#5853#1" expanded="false" />
+            <element signature="e#5879#6162#0" expanded="false" />
+            <element signature="e#5939#6056#0" expanded="false" />
+            <element signature="e#6333#6777#0" expanded="false" />
+            <element signature="e#6333#6559#1" expanded="false" />
+            <element signature="e#6818#7203#0" expanded="false" />
+            <element signature="e#6818#6898#1" expanded="false" />
+            <element signature="e#7278#7712#0" expanded="false" />
+            <element signature="e#7278#7503#1" expanded="false" />
+            <element signature="e#7789#8979#0" expanded="false" />
+            <element signature="e#7789#8089#1" expanded="false" />
+            <element signature="e#8116#8260#0" expanded="false" />
+            <element signature="e#8352#8915#0" expanded="false" />
+            <element signature="e#8509#8915#0" expanded="false" />
+            <element signature="e#8765#8850#0" expanded="false" />
+            <element signature="e#9051#9774#0" expanded="false" />
+            <element signature="e#9051#9538#1" expanded="false" />
+            <element signature="e#9610#9752#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maya_signatures/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" column="21" lean-forward="true" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="59" lean-forward="false" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="752">
+          <caret line="53" column="66" lean-forward="false" selection-start-line="53" selection-start-column="66" selection-end-line="53" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maya_signatures/commands/cache.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/travis.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_scrape.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#116#209#0" expanded="false" />
+            <element signature="e#141#209#0" expanded="false" />
+            <element signature="e#244#2145#0" expanded="false" />
+            <element signature="e#282#297#0" expanded="false" />
+            <element signature="e#354#442#0" expanded="false" />
+            <element signature="e#488#576#0" expanded="false" />
+            <element signature="e#634#758#0" expanded="false" />
+            <element signature="e#823#933#0" expanded="false" />
+            <element signature="e#975#1021#0" expanded="false" />
+            <element signature="e#1065#1122#0" expanded="false" />
+            <element signature="e#1164#1272#0" expanded="false" />
+            <element signature="e#1320#1395#0" expanded="false" />
+            <element signature="e#1444#1616#0" expanded="false" />
+            <element signature="e#1675#1863#0" expanded="false" />
+            <element signature="e#1921#2012#0" expanded="false" />
+            <element signature="e#2053#2145#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maya_signatures/commands/scrape.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="52" column="44" lean-forward="false" selection-start-line="52" selection-start-column="44" selection-end-line="52" selection-end-column="44" />
+          <folding>
+            <element signature="e#611#837#0" expanded="false" />
+            <element signature="e#887#1074#0" expanded="false" />
+            <element signature="e#887#1015#1" expanded="false" />
+            <element signature="e#1120#1308#0" expanded="false" />
+            <element signature="e#1120#1280#1" expanded="false" />
+            <element signature="e#1363#1563#0" expanded="false" />
+            <element signature="e#1363#1518#1" expanded="false" />
+            <element signature="e#1592#1974#0" expanded="false" />
+            <element signature="e#1592#1785#1" expanded="false" />
+            <element signature="e#2046#2765#0" expanded="false" />
+            <element signature="e#2046#2420#1" expanded="false" />
+            <element signature="e#2806#3218#0" expanded="false" />
+            <element signature="e#2806#2981#1" expanded="false" />
+            <element signature="e#3105#3218#0" expanded="false" />
+            <element signature="e#3255#3434#0" expanded="false" />
+            <element signature="e#3255#3390#1" expanded="false" />
+            <element signature="e#3486#3930#0" expanded="false" />
+            <element signature="e#3486#3756#1" expanded="false" />
+            <element signature="e#4016#5711#0" expanded="false" />
+            <element signature="e#4016#4473#1" expanded="false" />
+            <element signature="e#4488#4788#0" expanded="false" />
+            <element signature="e#4940#5428#0" expanded="false" />
+            <element signature="e#5751#6288#0" expanded="false" />
+            <element signature="e#5751#5853#1" expanded="false" />
+            <element signature="e#5879#6162#0" expanded="false" />
+            <element signature="e#5939#6056#0" expanded="false" />
+            <element signature="e#6333#6777#0" expanded="false" />
+            <element signature="e#6333#6559#1" expanded="false" />
+            <element signature="e#6818#7203#0" expanded="false" />
+            <element signature="e#6818#6898#1" expanded="false" />
+            <element signature="e#7278#7712#0" expanded="false" />
+            <element signature="e#7278#7503#1" expanded="false" />
+            <element signature="e#7789#8979#0" expanded="false" />
+            <element signature="e#7789#8089#1" expanded="false" />
+            <element signature="e#8116#8260#0" expanded="false" />
+            <element signature="e#8352#8915#0" expanded="false" />
+            <element signature="e#8509#8915#0" expanded="false" />
+            <element signature="e#8765#8850#0" expanded="false" />
+            <element signature="e#9051#9774#0" expanded="false" />
+            <element signature="e#9051#9538#1" expanded="false" />
+            <element signature="e#9610#9752#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="752">
+          <caret line="53" column="59" lean-forward="false" selection-start-line="53" selection-start-column="59" selection-end-line="53" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="16" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maya_signatures/commands/cache.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maya_signatures/commands/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="8" column="64" lean-forward="false" selection-start-line="8" selection-start-column="64" selection-end-line="8" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maya_signatures/cli.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1168">
+          <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tox.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="39" lean-forward="false" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_scrape.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#116#209#0" expanded="false" />
+            <element signature="e#141#209#0" expanded="false" />
+            <element signature="e#244#2145#0" expanded="false" />
+            <element signature="e#282#297#0" expanded="false" />
+            <element signature="e#354#442#0" expanded="false" />
+            <element signature="e#488#576#0" expanded="false" />
+            <element signature="e#634#758#0" expanded="false" />
+            <element signature="e#823#933#0" expanded="false" />
+            <element signature="e#975#1021#0" expanded="false" />
+            <element signature="e#1065#1122#0" expanded="false" />
+            <element signature="e#1164#1272#0" expanded="false" />
+            <element signature="e#1320#1395#0" expanded="false" />
+            <element signature="e#1444#1616#0" expanded="false" />
+            <element signature="e#1675#1863#0" expanded="false" />
+            <element signature="e#1921#2012#0" expanded="false" />
+            <element signature="e#2053#2145#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maya_signatures/commands/scrape.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#611#837#0" expanded="false" />
+            <element signature="e#887#1074#0" expanded="false" />
+            <element signature="e#887#1015#1" expanded="false" />
+            <element signature="e#1120#1308#0" expanded="false" />
+            <element signature="e#1120#1280#1" expanded="false" />
+            <element signature="e#1363#1563#0" expanded="false" />
+            <element signature="e#1363#1518#1" expanded="false" />
+            <element signature="e#1592#1974#0" expanded="false" />
+            <element signature="e#1592#1785#1" expanded="false" />
+            <element signature="e#2046#2765#0" expanded="false" />
+            <element signature="e#2046#2420#1" expanded="false" />
+            <element signature="e#2806#3218#0" expanded="false" />
+            <element signature="e#2806#2981#1" expanded="false" />
+            <element signature="e#3105#3218#0" expanded="false" />
+            <element signature="e#3255#3434#0" expanded="false" />
+            <element signature="e#3255#3390#1" expanded="false" />
+            <element signature="e#3486#3930#0" expanded="false" />
+            <element signature="e#3486#3756#1" expanded="false" />
+            <element signature="e#4016#5711#0" expanded="false" />
+            <element signature="e#4016#4473#1" expanded="false" />
+            <element signature="e#4488#4788#0" expanded="false" />
+            <element signature="e#4940#5428#0" expanded="false" />
+            <element signature="e#5751#6288#0" expanded="false" />
+            <element signature="e#5751#5853#1" expanded="false" />
+            <element signature="e#5879#6162#0" expanded="false" />
+            <element signature="e#5939#6056#0" expanded="false" />
+            <element signature="e#6333#6777#0" expanded="false" />
+            <element signature="e#6333#6559#1" expanded="false" />
+            <element signature="e#6818#7203#0" expanded="false" />
+            <element signature="e#6818#6898#1" expanded="false" />
+            <element signature="e#7278#7712#0" expanded="false" />
+            <element signature="e#7278#7503#1" expanded="false" />
+            <element signature="e#7789#8979#0" expanded="false" />
+            <element signature="e#7789#8089#1" expanded="false" />
+            <element signature="e#8116#8260#0" expanded="false" />
+            <element signature="e#8352#8915#0" expanded="false" />
+            <element signature="e#8509#8915#0" expanded="false" />
+            <element signature="e#8765#8850#0" expanded="false" />
+            <element signature="e#9051#9774#0" expanded="false" />
+            <element signature="e#9051#9538#1" expanded="false" />
+            <element signature="e#9610#9752#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -400,42 +885,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="659">
-          <caret line="51" column="35" lean-forward="false" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/maya_signatures/commands/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" column="12" lean-forward="true" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/maya_signatures/commands/cache.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" column="106" lean-forward="true" selection-start-line="7" selection-start-column="106" selection-end-line="7" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/maya_signatures/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/maya_signatures/cli.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docs/source/conf.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -443,34 +892,183 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="64" column="5" lean-forward="false" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/maya_signatures/commands/scrape.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="42" column="11" lean-forward="false" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docs/source/index.rst">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
           <caret line="2" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maya_signatures/cli.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="39" column="4" lean-forward="false" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pycharm/nose_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="12" column="34" lean-forward="true" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maya_signatures/commands/cache.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="752">
+          <caret line="53" column="66" lean-forward="false" selection-start-line="53" selection-start-column="66" selection-end-line="53" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maya_signatures/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maya_signatures/commands/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="33" lean-forward="false" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/pip-pic2t4u_-build/maya_signatures/commands/scrape.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="144" column="0" lean-forward="true" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="13" column="25" lean-forward="false" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tox.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="17" column="35" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+        <state relative-caret-position="144">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_scrape.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+          <folding>
+            <element signature="e#116#209#0" expanded="false" />
+            <element signature="e#141#209#0" expanded="false" />
+            <element signature="e#244#2145#0" expanded="false" />
+            <element signature="e#282#297#0" expanded="false" />
+            <element signature="e#354#442#0" expanded="false" />
+            <element signature="e#488#576#0" expanded="false" />
+            <element signature="e#634#758#0" expanded="false" />
+            <element signature="e#823#933#0" expanded="false" />
+            <element signature="e#975#1021#0" expanded="false" />
+            <element signature="e#1065#1122#0" expanded="false" />
+            <element signature="e#1164#1272#0" expanded="false" />
+            <element signature="e#1320#1395#0" expanded="false" />
+            <element signature="e#1444#1616#0" expanded="false" />
+            <element signature="e#1675#1863#0" expanded="false" />
+            <element signature="e#1921#2012#0" expanded="false" />
+            <element signature="e#2053#2145#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maya_signatures/commands/scrape.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="113" column="0" lean-forward="true" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+          <folding>
+            <element signature="e#611#837#0" expanded="false" />
+            <element signature="e#887#1074#0" expanded="false" />
+            <element signature="e#887#1015#1" expanded="false" />
+            <element signature="e#1120#1308#0" expanded="false" />
+            <element signature="e#1120#1280#1" expanded="false" />
+            <element signature="e#1363#1563#0" expanded="false" />
+            <element signature="e#1363#1518#1" expanded="false" />
+            <element signature="e#1592#1974#0" expanded="false" />
+            <element signature="e#1592#1785#1" expanded="false" />
+            <element signature="e#2046#2765#0" expanded="false" />
+            <element signature="e#2046#2420#1" expanded="false" />
+            <element signature="e#2806#3218#0" expanded="false" />
+            <element signature="e#2806#2981#1" expanded="false" />
+            <element signature="e#3105#3218#0" expanded="false" />
+            <element signature="e#3255#3434#0" expanded="false" />
+            <element signature="e#3255#3390#1" expanded="false" />
+            <element signature="e#3486#3930#0" expanded="false" />
+            <element signature="e#3486#3756#1" expanded="false" />
+            <element signature="e#4016#5711#0" expanded="false" />
+            <element signature="e#4016#4473#1" expanded="false" />
+            <element signature="e#4488#4788#0" expanded="false" />
+            <element signature="e#4940#5428#0" expanded="false" />
+            <element signature="e#5751#6288#0" expanded="false" />
+            <element signature="e#5751#5853#1" expanded="false" />
+            <element signature="e#5879#6162#0" expanded="false" />
+            <element signature="e#5939#6056#0" expanded="false" />
+            <element signature="e#6333#6777#0" expanded="false" />
+            <element signature="e#6333#6559#1" expanded="false" />
+            <element signature="e#6818#7203#0" expanded="false" />
+            <element signature="e#6818#6898#1" expanded="false" />
+            <element signature="e#7278#7712#0" expanded="false" />
+            <element signature="e#7278#7503#1" expanded="false" />
+            <element signature="e#7789#8979#0" expanded="false" />
+            <element signature="e#7789#8089#1" expanded="false" />
+            <element signature="e#8116#8260#0" expanded="false" />
+            <element signature="e#8352#8915#0" expanded="false" />
+            <element signature="e#8509#8915#0" expanded="false" />
+            <element signature="e#8765#8850#0" expanded="false" />
+            <element signature="e#9051#9774#0" expanded="false" />
+            <element signature="e#9051#9538#1" expanded="false" />
+            <element signature="e#9610#9752#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

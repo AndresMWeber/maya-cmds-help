@@ -98,4 +98,3 @@ ENV/
 
 # mkdocs documentation
 /site
-tests/

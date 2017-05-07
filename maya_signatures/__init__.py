@@ -1,4 +1,4 @@
-import commands
+from . import commands
 from .commands.scrape import Scrape
 
 __all__ = ['commands', 'cli']
@@ -15,4 +15,4 @@ def scrape(maya_commands):
         scraper = Scrape()
         cache = scraper.cached
 
-    scraper._store_commands(maya_commands)
+    scraper.query(maya_commands)
