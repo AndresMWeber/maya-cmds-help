@@ -1,19 +1,23 @@
 language: python
 python:
-  - "3.6"
-  - "2.7"
-before_install:
-#  - "export DISPLAY=:99.0"
-#  - "sh -e /etc/init.d/xvfb start"
-# command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
+- '3.6'
+- '2.7'
+before_install: 
 install:
-  - pip install tox
-  - pip install tox-travis
-  - pip install .
-  - pip install coveralls
-# # command to run tests, e.g. python setup.py test
+- pip install tox
+- pip install tox-travis
+- pip install .
+- pip install coveralls
 script:
-  - tox
+- tox
+after_sucess: coveralls
 
-after_sucess:
-  coveralls
+deploy:
+  provider: pypi
+  user: andresmweber
+  password:
+    secure: K5j0P2HjfblSsDLtOCsvZd5T4ljuyqUPucWlgB6TYA1vQ7UhvuwTf4KNe9hyVgXcqyfYR1p/woGvXyklFN5OffdHoYoKuYIH/zfEFYT54qtlKuvj369mJ4okNhQq9lCo24CO4U/Kqxsnc7KWW3B0dtjrE2zCowIAfJxBsOUN21ityjoo3y7/jPICh9JOCmkntifhRNdZOsj7xThn2PUcA3iKtqc5Xy6z4H+VmyKfS54kGKbI+Fmckg4/xaC9QchGEHIUglSLs/7hHqvaHA0/8dMsVaqARV3S+93A+jE3opqIs5o5gYwXMfIJJhn4RciJn0GPiRggd3647aQO3Gx6XH/kkD1hNnNHXv3CNOsxa4ArAA7RuHGZlG5T7kpFeuQ0CrqpTK4e6RXbpyQVdxkIBi5E1GLaGlEGTtYMQkbJHKC7s0eKpa19PJgnSufl8smkpyvQkusKUz5JOwhEKvc8pyEx20h+41x1yRKX87NDiP7LyCQoYbqRsy82MMO94Qxj8Fnyr3jS8KuC7M558WQ0HLwih8Zod/j4PTIr4CtgVhQL+Q6bEEcrRXm4yTTDrzHPqoeSGbDDTe4IwkzRSC9oXeF0WcpMltkqzRF1xF1Md5GTbaia7QwDuhIMAL9AwA5YLB4Eivm/TdIHiCTERUHwlAVof+M25BY0wIuSBtWxlTs=
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: AndresMWeber/mayasig_cli
