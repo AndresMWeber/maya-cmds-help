@@ -1,16 +1,23 @@
 """Packaging settings."""
 import codecs
 from os.path import abspath, dirname, join
-from setuptools import find_packages, setup
+from setuptools import setup, find_packages
+from distutils.util import convert_path
 
-__version__ = '0.5.6'
+__package__ = 'maya_signatures'
+
+# from:
+# http://stackoverflow.com/questions/2058802/how-can-i-get-the-version-defined-in-setup-py-setuptools-in-my-package
+main_ns = {}
+with open(convert_path('%s/version.py' % __package__)) as ver_file:
+    exec(ver_file.read(), main_ns)
 
 with codecs.open(join(abspath(dirname(__file__)), 'README.rst'), encoding='utf-8') as readme_file:
     long_description = readme_file.read()
 
 setup(
     name='Maya Signature Scraper',
-    version=__version__,
+    version=main_ns['__version__'],
     description='A command line program to systematically scrape command signatures for maya in Python.',
     long_description=long_description,
     url='https://github.com/andresmweber/mayasig-cli.git',
@@ -30,7 +37,7 @@ setup(
     install_requires=['redis', 'bs4', 'requests', 'six'],
     extras_require={
         'test': ['coverage', 'nose', 'tox', 'virtualenv', 'travis', 'python-coveralls'],
-        'dev': ['twine', 'virtualenv', 'Sphinx', 'docutils', 'docopt']
+        'dev': ['distutils2', 'twine', 'virtualenv', 'Sphinx', 'docutils', 'docopt']
     },
     entry_points={
         'console_scripts': [

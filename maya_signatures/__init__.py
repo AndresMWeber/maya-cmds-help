@@ -1,6 +1,8 @@
 from . import commands
 from .commands.scrape import Scrape
+import version
 
+__version = version.__version__
 __all__ = ['commands', 'cli']
 
 CACHE = None
