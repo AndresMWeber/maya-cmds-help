@@ -10,8 +10,6 @@ install:
   - pip install coveralls
 script:
   - tox
-after_sucess:
-  - coveralls
 
 deploy:
   provider: pypi
