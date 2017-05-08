@@ -1,9 +1,9 @@
 from . import commands
 from .commands.scrape import Scrape
-import version
+from . import version
 
 __version__ = version.__version__
-__all__ = ['commands', 'cli']
+__all__ = ['version', 'commands', 'cli']
 
 CACHE = None
 SCRAPER = None
