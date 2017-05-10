@@ -19,4 +19,4 @@ deploy:
     tags: true
     all_branches: true
     distributions: sdist bdist_wheel
-    repo: AndresMWeber/maya-help-cmds
+    repo: AndresMWeber/maya-cmds-help
