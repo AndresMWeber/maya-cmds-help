@@ -1,4 +1,4 @@
-Maya Command Signature Scraper: For people who just really want to check their maya.cmds signatures
+maya-cmds-help: For people who just really want to check their maya.cmds signatures
 ###################################################################################################
 `Online Documentation (ReadTheDocs) <http://mayasig-cli.readthedocs.io/en/latest/#module-maya_signatures.commands.scrape>`_
 
@@ -45,11 +45,11 @@ A universal installation method (that works on Windows, Mac OS X, Linux, …, an
 
     # Make sure we have an up-to-date version of pip and setuptools:
     $ pip install --upgrade pip setuptools
-    $ pip install mayaSigScraper-cli
+    $ pip install maya-cmds-help
 
 
 (If ``pip`` installation fails for some reason, you can try
-``easy_install mayaSigScraper-cli`` as a fallback.)
+``easy_install maya-cmds-help`` as a fallback.)
 
 Usage
 =============

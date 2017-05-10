@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Maya Command Signature Scraper documentation build configuration file, created by
+# maya-cmds-help documentation build configuration file, created by
 # sphinx-quickstart on Fri May 05 00:02:58 2017.
 #
 # This file is execfile()d with the current directory set to its
@@ -48,7 +48,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Maya Command Signature Scraper'
+project = u'maya-cmds-help'
 copyright = u'2017, Andres Weber'
 author = u'Andres Weber'
 
@@ -101,7 +101,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'MayaCommandSignatureScraperdoc'
+htmlhelp_basename = 'maya-cmds-help-doc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -127,7 +127,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'MayaCommandSignatureScraper.tex', u'Maya Command Signature Scraper Documentation',
+    (master_doc, 'maya-cmds-help.tex', u'maya-cmds-help Documentation',
      u'Andres Weber', 'manual'),
 ]
 
@@ -136,7 +136,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'mayacommandsignaturescraper', u'Maya Command Signature Scraper Documentation',
+    (master_doc, 'maya-cmds-help', u'maya-cmds-help Documentation',
      [author], 1)
 ]
 
@@ -146,7 +146,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'MayaCommandSignatureScraper', u'Maya Command Signature Scraper Documentation',
-     author, 'MayaCommandSignatureScraper', 'One line description of project.',
+    (master_doc, 'maya-cmds-help', u'maya-cmds-help Documentation',
+     author, 'maya-cmds-help', 'One line description of project.',
      'Miscellaneous'),
 ]

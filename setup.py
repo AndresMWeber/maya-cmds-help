@@ -16,12 +16,12 @@ with codecs.open(join(abspath(dirname(__file__)), 'README.rst'), encoding='utf-8
     long_description = readme_file.read()
 
 setup(
-    name='Maya Signature Scraper',
+    name='maya-cmds-help',
     version=main_ns['__version__'],
     description=("A module and command line tool that scrapes the online maya help docs to query an input "
                  "maya.cmds command (or build stubs) for its signature in Python."),
     long_description=long_description,
-    url='https://github.com/andresmweber/mayasig-cli.git',
+    url='https://github.com/andresmweber/maya-cmds-help.git',
     author='Andres Weber',
     author_email='andresmweber@gmail.com',
     license='MIT',
