@@ -11,9 +11,9 @@ Maya Command Signature Scraper: For people who just really want to check their m
 .. image:: https://coveralls.io/repos/github/AndresMWeber/mayasig_cli/badge.svg?branch=master
     :target: https://coveralls.io/github/AndresMWeber/mayasig_cli?branch=master
 
-.. image:: https://landscape.io/github/AndresMWeber/mayasig_cli/master/landscape.svg?style=flat
-    :target: https://landscape.io/github/AndresMWeber/mayasig_cli/master
-    :alt: Code Health
+.. image:: https://landscape.io/github/AndresMWeber/maya-cmds-help/master/landscape.svg?style=flat
+   :target: https://landscape.io/github/AndresMWeber/maya-cmds-help/master
+   :alt: Code Health
 
 .. contents::
 
@@ -45,11 +45,11 @@ A universal installation method (that works on Windows, Mac OS X, Linux, …, an
 
     # Make sure we have an up-to-date version of pip and setuptools:
     $ pip install --upgrade pip setuptools
-    $ pip install mayaSigScraper-cli
+    $ pip install maya-cmds-help
 
 
 (If ``pip`` installation fails for some reason, you can try
-``easy_install mayaSigScraper-cli`` as a fallback.)
+``easy_install maya-cmds-help`` as a fallback.)
 
 Usage
 =============
