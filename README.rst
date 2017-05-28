@@ -11,9 +11,9 @@ maya-cmds-help: For people who just really want to check their maya.cmds signatu
 .. image:: https://coveralls.io/repos/github/AndresMWeber/mayasig_cli/badge.svg?branch=master
     :target: https://coveralls.io/github/AndresMWeber/mayasig_cli?branch=master
 
-.. image:: https://landscape.io/github/AndresMWeber/mayasig_cli/master/landscape.svg?style=flat
-    :target: https://landscape.io/github/AndresMWeber/mayasig_cli/master
-    :alt: Code Health
+.. image:: https://landscape.io/github/AndresMWeber/maya-cmds-help/master/landscape.svg?style=flat
+   :target: https://landscape.io/github/AndresMWeber/maya-cmds-help/master
+   :alt: Code Health
 
 .. contents::
 
